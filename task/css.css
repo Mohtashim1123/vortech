@@ -1,0 +1,134 @@
+body{
+    margin: 0px;
+}
+/* slider open */
+.slide {
+    margin-right: 500px;
+    margin-top: -20px;
+    width: 101%;
+}  
+.container-fluid{
+    padding: 0;
+}
+ .fixed-top1 {
+                                                
+top: 0;
+right: 0;
+ left: 0;
+ z-index: 1030;
+ }
+ .carousel-caption> button:hover{
+     background-color: green;
+     outline-color: none;
+     box-shadow: none;
+     border-color: transparent;
+
+ }
+/* slider close */
+
+/* icon heading text open */
+.icon{
+    height: 50%;
+    width: 50%;
+}
+
+.heading{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.headingChild1{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.headingChild2{
+    display: flex;
+    align-items: center;
+    width: 200px;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.headingChild3{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.icon-style{
+    margin-top: 4%;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+/* icon heading text close */
+
+/* text button open */
+.text{
+    display: flex;
+    align-items: center;
+    /* flex-direction: row; */
+    justify-content: center;
+    margin-top: 5%;
+    text-align: center;
+}
+
+.butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    text-align: center;
+
+}
+
+/* text button close */
+/* footer open */
+.footer {
+    
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:gray;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    margin-top: 5%;
+    height: 65%;
+ }
+ .footertext{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+    
+ }
+ ul{
+   list-style-type: none;
+ }
+
+ ul li{
+     display: inline;
+     padding: 10px;
+     color: blueviolet;
+ }
+ a{
+     text-decoration:none;
+     color: yellow
+
+ }
+ a :hover{
+     color: yellow;
+
+ }
+ /* footer close */
