@@ -29,3 +29,28 @@ $window.on('scroll', function(){
 	nav.toggleClass('hidden', scrollTop > prev);
 	prev = scrollTop;
 });
+
+// function text(){
+// 	let abc = "hello";
+// 	document.write(abc);
+// }
+//   text();
+// document.write(abc);
+// function view(){
+// 	return(
+// 		 `
+// 		 <h1>hello tere</h1>
+// 		`
+// 	)
+// }
+// view();
+
+// const headingWrapper = document.querySelector('#heading');
+// const addHeading =  (text = 'Hello World') => {
+// return `<h1>${text}</h1>`
+// }
+
+
+// headingWrapper.innerHTML = addHeading();
+
+// console.log(headingWrapper)
