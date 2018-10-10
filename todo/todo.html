@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Document</title>
+
+    <style>
+    #maindiv{background-color: rgb(92, 235, 187);
+    text-align: center;
+    margin: 34px 24px 24px 21px;
+    border: 3px solid black;
+    border-radius: 39px;
+    }
+    .input{
+        width: 390px;
+    border-radius: 18px;
+    font-size: 15px;
+    padding: 11px;
+    margin: 25px 42px 20px 6px;
+    font-family: MV Boli;
+    background-color: #d2dede;
+}
+.btnInput{
+    width: 106px;
+    border-radius: 18px;
+    font-size: 15px;
+    padding: 11px;
+    margin: 20px 42px 26px 6px;
+    font-family: MV Boli;
+    background-color: #d2dede;
+}
+.btnInput:hover{
+    background-color: rgb(136, 131, 179);
+}
+.li{
+    list-style-type: none;
+    border-radius: 18px;
+    font-size: 21px;
+}
+
+#ol{
+    margin: 10px 65px 35px 17px;
+}
+.delete{
+    width: 89px;
+    border-radius: 34px;
+    font-size: 15px;
+    padding: 11px;
+    margin: 25px 20px 29px 6px;
+    font-family: MV Boli;
+    background-color: #d2dede;
+}
+.fron{
+    font-family: Colonna MT;
+    font-size: 34px;
+    margin: 25px 20px 14px 6px;
+}
+.delete:hover{
+    background-color: rgb(136, 131, 179);
+
+}
+    </style>
+</head>
+<body>
+<div id="maindiv"></div>
+
+
+    <script>
+
+
+var perfectCode = document.getElementById("maindiv")
+var input = document.createElement("Input")
+input.setAttribute("Class","input")
+input.setAttribute("Type","text")
+input.setAttribute("id","todo")
+input.setAttribute("Placeholder","Please insert your items")
+
+var heading = document.createElement("h3")
+heading.setAttribute("class","fron")
+var tec = document.createTextNode("Welcome To My Todo App!")
+heading.appendChild(tec)
+perfectCode.appendChild(heading)
+
+var btnInput = document.createElement("button")
+btnInput.setAttribute("onClick","task()")
+btnInput.setAttribute("class","btnInput")
+var btnText = document.createTextNode("Add Now!")
+perfectCode.appendChild(input)
+btnInput.appendChild(btnText)
+perfectCode.appendChild(btnInput)
+
+var ListDiv = document.createElement("div")
+ListDiv.setAttribute("id","ListDiv")
+var ol = document.createElement("ol")
+ol.setAttribute("id","ol")
+
+function task(){
+   if(input.value === "" || input.value === " "){
+    swal("Please insert some items!")
+   }else{
+    var li = document.createElement("li")
+    li.setAttribute("class","li")
+    li.setAttribute("id","li")
+
+    var ADDTODO = document.getElementById("todo").value;
+    var litext = document.createTextNode(ADDTODO)
+
+    var deleteBtn = document.createElement("button")
+    deleteBtn.setAttribute("class","delete")
+    deleteBtn.setAttribute("onClick","delete()")
+    var deleteText = document.createTextNode("Delete")
+    deleteBtn.appendChild(deleteText)
+
+    li.appendChild(litext)
+    li.appendChild(deleteBtn)
+    ol.appendChild(li)
+    ListDiv.appendChild(ol)
+
+    deleteBtn.addEventListener('click', function(){
+        
+        deleteBtn.parentNode.remove()
+        
+    
+    })
+    var EditBtn = document.createElement("button")
+    EditBtn.setAttribute("class","delete")
+    
+    var EditText = document.createTextNode("Edit")
+    EditBtn.appendChild(EditText)
+    li.appendChild(EditBtn)
+
+    EditBtn.addEventListener('click',function(){
+        li.removeChild(litext)
+        update = prompt("Enter Your Text Here",ADDTODO)
+        litext = document.createTextNode(update)
+        li.insertBefore(litext,deleteBtn)
+        
+    })
+
+   }
+
+    perfectCode.appendChild(ListDiv)
+    document.getElementById('todo').value = '';
+}
+
+    
+    </script>
+</body>
+</html>
