@@ -32,10 +32,10 @@
 })(typeof global === 'object' ? global : this, function() {
     'use strict';
 
-    var Waves            = Waves || {};
-    var $$               = document.querySelectorAll.bind(document);
-    var toString         = Object.prototype.toString;
-    var isTouchAvailable = 'ontouchstart' in window;
+    let Waves            = Waves || {};
+    let $$               = document.querySelectorAll.bind(document);
+    let toString         = Object.prototype.toString;
+    let isTouchAvailable = 'ontouchstart' in window;
 
 
     // Find exact position of element
@@ -48,7 +48,7 @@
     }
 
     function isObject(value) {
-        var type = typeof value;
+        let type = typeof value;
         return type === 'function' || type === 'object' && !!value;
     }
 
@@ -57,7 +57,7 @@
     }
 
     function getWavesElements(nodes) {
-        var stringRepr = toString.call(nodes);
+        let stringRepr = toString.call(nodes);
 
         if (stringRepr === '[object String]') {
             return $$(nodes);
@@ -71,7 +71,7 @@
     }
 
     function offset(elem) {
-        var docElem, win,
+        let docElem, win,
             box = { top: 0, left: 0 },
             doc = elem && elem.ownerDocument;
 
@@ -88,9 +88,9 @@
     }
 
     function convertStyle(styleObj) {
-        var style = '';
+        let style = '';
 
-        for (var prop in styleObj) {
+        for (let prop in styleObj) {
             if (styleObj.hasOwnProperty(prop)) {
                 style += (prop + ':' + styleObj[prop] + ';');
             }
@@ -99,7 +99,7 @@
         return style;
     }
 
-    var Effect = {
+    let Effect = {
 
         // Effect duration
         duration: 750,
@@ -117,14 +117,14 @@
             element = element || this;
 
             // Create ripple
-            var ripple = document.createElement('div');
+            let ripple = document.createElement('div');
             ripple.className = 'waves-ripple waves-rippling';
             element.appendChild(ripple);
 
             // Get click coordinate and element width
-            var pos       = offset(element);
-            var relativeY = 0;
-            var relativeX = 0;
+            let pos       = offset(element);
+            let relativeY = 0;
+            let relativeX = 0;
             // Support for touch devices
             if('touches' in e && e.touches.length) {
                 relativeY   = (e.touches[0].pageY - pos.top);
@@ -139,8 +139,8 @@
             relativeX = relativeX >= 0 ? relativeX : 0;
             relativeY = relativeY >= 0 ? relativeY : 0;
 
-            var scale     = 'scale(' + ((element.clientWidth / 100) * 3) + ')';
-            var translate = 'translate(0,0)';
+            let scale     = 'scale(' + ((element.clientWidth / 100) * 3) + ')';
+            let translate = 'translate(0,0)';
 
             if (velocity) {
                 translate = 'translate(' + (velocity.x) + 'px, ' + (velocity.y) + 'px)';
@@ -154,7 +154,7 @@
             ripple.setAttribute('data-translate', translate);
 
             // Set ripple position
-            var rippleStyle = {
+            let rippleStyle = {
                 top: relativeY + 'px',
                 left: relativeX + 'px'
             };
@@ -171,7 +171,7 @@
             rippleStyle.transform = scale + ' ' + translate;
             rippleStyle.opacity = '1';
 
-            var duration = e.type === 'mousemove' ? 2500 : Effect.duration;
+            let duration = e.type === 'mousemove' ? 2500 : Effect.duration;
             rippleStyle['-webkit-transition-duration'] = duration + 'ms';
             rippleStyle['-moz-transition-duration']    = duration + 'ms';
             rippleStyle['-o-transition-duration']      = duration + 'ms';
@@ -183,9 +183,9 @@
         hide: function(e, element) {
             element = element || this;
 
-            var ripples = element.getElementsByClassName('waves-rippling');
+            let ripples = element.getElementsByClassName('waves-rippling');
 
-            for (var i = 0, len = ripples.length; i < len; i++) {
+            for (let i = 0, len = ripples.length; i < len; i++) {
                 removeRipple(e, element, ripples[i]);
             }
 
@@ -203,12 +203,12 @@
      * Collection of wrapper for HTML element that only have single tag
      * like <input> and <img>
      */
-    var TagWrapper = {
+    let TagWrapper = {
 
         // Wrap <input> tag so it can perform the effect
         input: function(element) {
 
-            var parent = element.parentNode;
+            let parent = element.parentNode;
 
             // If input already have parent just pass through
             if (parent.tagName.toLowerCase() === 'i' && parent.classList.contains('waves-effect')) {
@@ -216,7 +216,7 @@
             }
 
             // Put element class and style to the specified parent
-            var wrapper       = document.createElement('i');
+            let wrapper       = document.createElement('i');
             wrapper.className = element.className + ' waves-input-wrapper';
             element.className = 'waves-button-input';
 
@@ -225,9 +225,9 @@
             wrapper.appendChild(element);
 
             // Apply element color and background color to wrapper
-            var elementStyle    = window.getComputedStyle(element, null);
-            var color           = elementStyle.color;
-            var backgroundColor = elementStyle.backgroundColor;
+            let elementStyle    = window.getComputedStyle(element, null);
+            let color           = elementStyle.color;
+            let backgroundColor = elementStyle.backgroundColor;
 
             wrapper.setAttribute('style', 'color:' + color + ';background:' + backgroundColor);
             element.setAttribute('style', 'background-color:rgba(0,0,0,0);');
@@ -237,7 +237,7 @@
         // Wrap <img> tag so it can perform the effect
         img: function(element) {
 
-            var parent = element.parentNode;
+            let parent = element.parentNode;
 
             // If input already have parent just pass through
             if (parent.tagName.toLowerCase() === 'i' && parent.classList.contains('waves-effect')) {
@@ -245,7 +245,7 @@
             }
 
             // Put element as child
-            var wrapper  = document.createElement('i');
+            let wrapper  = document.createElement('i');
             parent.replaceChild(wrapper, element);
             wrapper.appendChild(element);
 
@@ -265,14 +265,14 @@
 
         ripple.classList.remove('waves-rippling');
 
-        var relativeX = ripple.getAttribute('data-x');
-        var relativeY = ripple.getAttribute('data-y');
-        var scale     = ripple.getAttribute('data-scale');
-        var translate = ripple.getAttribute('data-translate');
+        let relativeX = ripple.getAttribute('data-x');
+        let relativeY = ripple.getAttribute('data-y');
+        let scale     = ripple.getAttribute('data-scale');
+        let translate = ripple.getAttribute('data-translate');
 
         // Get delay beetween mousedown and mouse leave
-        var diff = Date.now() - Number(ripple.getAttribute('data-hold'));
-        var delay = 350 - diff;
+        let diff = Date.now() - Number(ripple.getAttribute('data-hold'));
+        let delay = 350 - diff;
 
         if (delay < 0) {
             delay = 0;
@@ -283,11 +283,11 @@
         }
 
         // Fade out ripple after delay
-        var duration = e.type === 'mousemove' ? 2500 : Effect.duration;
+        let duration = e.type === 'mousemove' ? 2500 : Effect.duration;
 
         setTimeout(function() {
 
-            var style = {
+            let style = {
                 top: relativeY + 'px',
                 left: relativeX + 'px',
                 opacity: '0',
@@ -321,7 +321,7 @@
     /**
      * Disable mousedown event for 500ms during and after touch
      */
-    var TouchHandler = {
+    let TouchHandler = {
 
         /* uses an integer rather than bool so there's no issues with
          * needing to clear timeouts if another touch event occurred
@@ -331,7 +331,7 @@
 
         allowEvent: function(e) {
 
-            var allow = true;
+            let allow = true;
 
             if (/^(mousedown|mousemove)$/.test(e.type) && TouchHandler.touches) {
                 allow = false;
@@ -340,7 +340,7 @@
             return allow;
         },
         registerEvent: function(e) {
-            var eType = e.type;
+            let eType = e.type;
 
             if (eType === 'touchstart') {
 
@@ -369,8 +369,8 @@
             return null;
         }
 
-        var element = null;
-        var target = e.target || e.srcElement;
+        let element = null;
+        let target = e.target || e.srcElement;
 
         while (target.parentElement) {
             if ( (!(target instanceof SVGElement)) && target.classList.contains('waves-effect')) {
@@ -394,7 +394,7 @@
         //     return;
         // }
 
-        var element = getWavesEffectElement(e);
+        let element = getWavesEffectElement(e);
 
         if (element !== null) {
 
@@ -407,14 +407,14 @@
 
             if (e.type === 'touchstart' && Effect.delay) {
 
-                var hidden = false;
+                let hidden = false;
 
-                var timer = setTimeout(function () {
+                let timer = setTimeout(function () {
                     timer = null;
                     Effect.show(e, element);
                 }, Effect.delay);
 
-                var hideEffect = function(hideEvent) {
+                let hideEffect = function(hideEvent) {
 
                     // if touch hasn't moved, and effect not yet started: start effect now
                     if (timer) {
@@ -430,7 +430,7 @@
                     removeListeners();
                 };
 
-                var touchMove = function(moveEvent) {
+                let touchMove = function(moveEvent) {
                     if (timer) {
                         clearTimeout(timer);
                         timer = null;
@@ -444,7 +444,7 @@
                 element.addEventListener('touchend', hideEffect, false);
                 element.addEventListener('touchcancel', hideEffect, false);
 
-                var removeListeners = function() {
+                let removeListeners = function() {
                     element.removeEventListener('touchmove', touchMove);
                     element.removeEventListener('touchend', hideEffect);
                     element.removeEventListener('touchcancel', hideEffect);
@@ -465,7 +465,7 @@
     }
 
     Waves.init = function(options) {
-        var body = document.body;
+        let body = document.body;
 
         options = options || {};
 
@@ -502,9 +502,9 @@
 
         classes = classes ? ' ' + classes : '';
 
-        var element, tagName;
+        let element, tagName;
 
-        for (var i = 0, len = elements.length; i < len; i++) {
+        for (let i = 0, len = elements.length; i < len; i++) {
 
             element = elements[i];
             tagName = element.tagName.toLowerCase();
@@ -526,7 +526,7 @@
      */
     Waves.ripple = function(elements, options) {
         elements = getWavesElements(elements);
-        var elementsLen = elements.length;
+        let elementsLen = elements.length;
 
         options          = options || {};
         options.wait     = options.wait || 0;
@@ -534,12 +534,12 @@
 
 
         if (elementsLen) {
-            var element, pos, off, centre = {}, i = 0;
-            var mousedown = {
+            let element, pos, off, centre = {}, i = 0;
+            let mousedown = {
                 type: 'mousedown',
                 button: 1
             };
-            var hideRipple = function(mouseup, element) {
+            let hideRipple = function(mouseup, element) {
                 return function() {
                     Effect.hide(mouseup, element);
                 };
@@ -562,7 +562,7 @@
                 Effect.show(mousedown, element);
 
                 if (options.wait >= 0 && options.wait !== null) {
-                    var mouseup = {
+                    let mouseup = {
                         type: 'mouseup',
                         button: 1
                     };
@@ -578,12 +578,12 @@
      */
     Waves.calm = function(elements) {
         elements = getWavesElements(elements);
-        var mouseup = {
+        let mouseup = {
             type: 'mouseup',
             button: 1
         };
 
-        for (var i = 0, len = elements.length; i < len; i++) {
+        for (let i = 0, len = elements.length; i < len; i++) {
             Effect.hide(mouseup, elements[i]);
         }
     };

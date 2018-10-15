@@ -1,12 +1,12 @@
-var body = document.getElementById('container');
-var loader = document.getElementById('loader');
+let body = document.getElementById('container');
+let loader = document.getElementById('loader');
 
 setTimeout(function () {
     body.style.display = 'block';
     loader.style.display = 'none';
 }, 2000);
 
-var home = {
+let home = {
     name: undefined,
     email: undefined,
     briefBio: undefined

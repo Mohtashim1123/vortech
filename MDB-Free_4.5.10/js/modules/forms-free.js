@@ -1,4 +1,4 @@
-var _this = this;
+let _this = this;
 
 ($ => {
 

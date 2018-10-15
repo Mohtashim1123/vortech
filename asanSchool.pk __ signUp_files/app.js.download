@@ -1,0 +1,234 @@
+//  ****************************************** signup() function code start ***************************************
+function signUp() {
+    let username = document.getElementById("username").value.toLowerCase();
+    let email = document.getElementById("email").value.toLowerCase();
+    let passWord = document.getElementById("password").value.toLowerCase();
+    let confirmPassword = document.getElementById('password1').value;
+
+    let load = document.getElementById("load");
+    load.classList.remove("hide");
+    
+    
+        
+        if(confirmPassword !== passWord || confirmPassword === "") {
+            load.classList.add("hide");
+            document.getElementById('errpassword1').innerHTML = "Password does not Match";
+        }
+
+        else if(username === "") {
+            document.getElementById('erruser').innerHTML = "No special Symbol or Space is Allowed";
+            load.classList.add("hide");
+        }
+
+        else if(username.length < 5) {
+            document.getElementById('erruser').innerHTML = "min letters Should be 5 and Max letters should be 10.";
+            load.classList.add("hide");
+        }
+
+        else if(email === "") {
+            document.getElementById('erremail').innerHTML = "Not a valid e-mail address";
+            load.classList.add("hide");
+        }
+
+        else if(passWord === "") {
+            document.getElementById('errpassword').innerHTML = "no Special symbols are Allowed";
+            load.classList.add("hide");
+        }
+
+        else if(passWord.length < 8 || passWord.length > 12) {
+            document.getElementById('errpassword').innerHTML = "min letters Should be 5 and Max letters should be 10.";
+            load.classList.add("hide");
+        }
+
+        else{    
+        setTimeout(function(){
+            let data = {
+                name: username,
+                email: email,
+                password: passWord
+            }
+            load.classList.add("hide")
+            let storage = localStorage.setItem("userInfo", JSON.stringify(data));
+        swal({
+            title: "Congratulation, account created successfully!",
+            icon : "./image/p.png",
+        })
+        .then(() =>{
+        document.getElementById("username").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("password1").value = "";
+        location = "./index1.html"
+    })
+    },3000);   
+}
+
+}
+
+//  ****************************************** signup() function code end ***************************************
+
+
+
+// ***************************************** login() function code start ********************************
+
+function logIn() {
+    let email =document.getElementById("email").value.toLowerCase();
+    let passWord = document.getElementById("password").value.toLowerCase();
+    let storage = localStorage.getItem("userInfo");
+    let objSto = JSON.parse(storage);
+    console.log(objSto.email)
+
+    let load = document.getElementById("load");
+    load.classList.remove("hide");
+
+    if(email === objSto.email && passWord === objSto.password) {
+        setTimeout(function(){
+        load.classList.add("hide")
+        swal({
+            title: "Login, Successfully",
+            icon : "./image/success.png",
+        })
+        .then(() =>{
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        location = "./greet.html"
+        })
+        },3000);
+    }
+    if(email !== objSto.email || passWord !== objSto.password) {
+        setTimeout(function(){
+            load.classList.add("hide")
+            swal({
+                title: "Authentication failed. You entered an incorrect username or password.",
+                icon : "./image/fail.png",
+                button: "try again"
+            })
+            .then(() =>{
+            document.getElementById("email").value = "";
+            document.getElementById("password").value = "";
+            })
+        },3000);
+    }
+}
+
+// ************************* login() function code end ********************************************
+
+
+
+// Function for UserName Validation...
+function userNameValid() {
+    let userName = document.getElementById("username").value;
+    let symbol = ["@", "#", ".", "$", " ", ",", "-", "_", "+","*","/","%","&", "^", "?"];
+    for(let i= 0; i < symbol.length; i++) {
+        for(let j = 0; j < userName.length; j++) {
+            // If Symbol[i] found in userName[j] Do this...
+            if(userName[j] === symbol[i]) {
+                document.getElementById('erruser').innerHTML = "No special Symbol or Space is Allowed";
+                break;
+            }
+            // If userName greater than 10 or less than 5 Do this...
+            if(userName.length > 10 || userName.length <5) {
+                // document.getElementById('erruser').className += " show";
+                document.getElementById('erruser').innerHTML = "min letters Should be 5 and Max letters should be 10.";
+                break;
+            }
+        }         
+    }
+}
+
+
+
+// Email Function
+function emailValid() {
+    let eMail = document.getElementById('email').value;
+    let atpos = eMail.indexOf("@");
+    let dotpos = eMail.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=eMail.length) {
+        document.getElementById('erremail').innerHTML = "Not a valid e-mail address";
+        return false;
+    }
+}
+
+
+
+// PASSWORD FUNCTION
+function passwordValid() {
+    let passWord = document.getElementById('password').value;
+    let validation = /^[a-zA-Z0-9]{8,}/g; //    [A-Z]{1}
+    let valid = passWord.match(validation);
+    if(valid == null) {
+        document.getElementById('errpassword').innerHTML = "no Special symbols are Allowed";
+    }
+    if(passWord.length > 12 || passWord.length < 8) {
+        document.getElementById('errpassword').innerHTML = "min 8 and max length is 12 letters";
+    }
+}
+
+// CONFIRM PASSWORD FUNCTION
+// function passwordValid1() {
+//     let passWord = document.getElementById('password').value;
+//     let confirmPassword = document.getElementById('password1').value;
+//     if(confirmPassword !== passWord) {
+//         document.getElementById('errpassword1').innerHTML = "Password does not Match";
+//     }
+// }
+
+
+
+// ************************** to clear all input field code start **************************************
+function allClear(eId) { 
+    document.getElementById(eId).innerHTML = "";
+}
+// ************************** to clear all input field code end **************************************
+
+
+
+
+// ************************ greet section Code Start ***********************************
+let localData = localStorage.getItem("userInfo");
+let localObj = JSON.parse(localData);
+document.getElementById("getname").innerHTML = localObj.name;
+// ************************ greet section Code End ***********************************
+
+
+
+
+
+// *****************************  Forget Section code Start************************************
+function forget() {
+    let load = document.getElementById("load");
+    load.classList.remove("hide");
+    let count = 11;
+    let email = document.getElementById("email").value.toLowerCase();
+    if(email === localObj.email) {
+        
+        let container = document.getElementById("passContainer");
+        container.classList.remove("hide");
+        document.getElementById("getpassword").innerHTML = localObj.password;
+       
+
+    setInterval(function(){
+        let sec = document.getElementById("sec").innerHTML = --count;
+        if(count === 0) {
+        document.getElementById("email").value = "";
+        load.classList.add("hide");
+        container.classList.add("hide");
+        location = "./index1.html"
+        }
+    },1000);
+}
+    else{
+        load.classList.add("hide");
+        document.getElementById("email").value = "";
+    swal({
+            title: "Could not find any email...",
+            icon: "./image/fail.png"
+        })
+        .then(() => {
+            location = "./index.html"
+        })
+    }
+}
+// *****************************  Forget Section code End ************************************
+
+

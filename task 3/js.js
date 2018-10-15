@@ -20,12 +20,12 @@ $(window).scroll(function() {
 });
 
 // scroll nav hide and show
-var prev = 0;
-var $window = $(window);
-var nav = $('.scrollhide-nav');
+let prev = 0;
+let $window = $(window);
+let nav = $('.scrollhide-nav');
 
 $window.on('scroll', function(){
-	var scrollTop = $window.scrollTop();
+	let scrollTop = $window.scrollTop();
 	nav.toggleClass('hidden', scrollTop > prev);
 	prev = scrollTop;
 });

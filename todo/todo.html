@@ -72,47 +72,47 @@
     <script>
 
 
-var perfectCode = document.getElementById("maindiv")
-var input = document.createElement("Input")
+let perfectCode = document.getElementById("maindiv")
+let input = document.createElement("Input")
 input.setAttribute("Class","input")
 input.setAttribute("Type","text")
 input.setAttribute("id","todo")
 input.setAttribute("Placeholder","Please insert your items")
 
-var heading = document.createElement("h3")
+let heading = document.createElement("h3")
 heading.setAttribute("class","fron")
-var tec = document.createTextNode("Welcome To My Todo App!")
+let tec = document.createTextNode("Welcome To My Todo App!")
 heading.appendChild(tec)
 perfectCode.appendChild(heading)
 
-var btnInput = document.createElement("button")
+let btnInput = document.createElement("button")
 btnInput.setAttribute("onClick","task()")
 btnInput.setAttribute("class","btnInput")
-var btnText = document.createTextNode("Add Now!")
+let btnText = document.createTextNode("Add Now!")
 perfectCode.appendChild(input)
 btnInput.appendChild(btnText)
 perfectCode.appendChild(btnInput)
 
-var ListDiv = document.createElement("div")
+let ListDiv = document.createElement("div")
 ListDiv.setAttribute("id","ListDiv")
-var ol = document.createElement("ol")
+let ol = document.createElement("ol")
 ol.setAttribute("id","ol")
 
 function task(){
    if(input.value === "" || input.value === " "){
     swal("Please insert some items!")
    }else{
-    var li = document.createElement("li")
+    let li = document.createElement("li")
     li.setAttribute("class","li")
     li.setAttribute("id","li")
 
-    var ADDTODO = document.getElementById("todo").value;
-    var litext = document.createTextNode(ADDTODO)
+    let ADDTODO = document.getElementById("todo").value;
+    let litext = document.createTextNode(ADDTODO)
 
-    var deleteBtn = document.createElement("button")
+    let deleteBtn = document.createElement("button")
     deleteBtn.setAttribute("class","delete")
     deleteBtn.setAttribute("onClick","delete()")
-    var deleteText = document.createTextNode("Delete")
+    let deleteText = document.createTextNode("Delete")
     deleteBtn.appendChild(deleteText)
 
     li.appendChild(litext)
@@ -126,10 +126,10 @@ function task(){
         
     
     })
-    var EditBtn = document.createElement("button")
+    let EditBtn = document.createElement("button")
     EditBtn.setAttribute("class","delete")
     
-    var EditText = document.createTextNode("Edit")
+    let EditText = document.createTextNode("Edit")
     EditBtn.appendChild(EditText)
     li.appendChild(EditBtn)
 

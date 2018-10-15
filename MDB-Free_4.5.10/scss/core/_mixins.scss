@@ -100,7 +100,7 @@
 }
 
 // Background color
-@mixin bg-variant($parent, $color) {
+@mixin bg-letiant($parent, $color) {
   #{$parent} {
     background-color: $color !important;
   }
@@ -113,7 +113,7 @@
 }
 
 // Typography
-@mixin text-emphasis-variant($parent, $color) {
+@mixin text-emphasis-letiant($parent, $color) {
   #{$parent} {
     color: $color !important;
   }
