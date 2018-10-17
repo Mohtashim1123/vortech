@@ -25,10 +25,11 @@
 
 <body>
 
+
     <div class="parentsidenav">
-        <div class="logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1200px-Steam_icon_logo.svg.png"
-                height="50px" width="50px">
+        <div id="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/1200px-Steam_icon_logo.svg.png" height="50px"
+                width="50px">
         </div>
         <div class="sidenav">
             <h3>Welcome to Steam</h3>
@@ -46,6 +47,8 @@
             <div class="col-md-0 col-xs-0 col-lg-0 col-sm-0"></div>
             <div class="col-md-4 col-xs-4 col-lg-4 col-sm-4">
                 <div class="welstyle">
+                    <div id="load" class="hide" style="font-family: 'Dosis', sans-serif; font-size: 30px"><i class="fas fa-spinner fa-pulse"
+                            style="font-size: 50px;"></i> Creating Account<br><br></div>
                     <h2>Welcome To Steam</h2>
                 </div>
             </div>
@@ -54,78 +57,77 @@
                     <div class="creatheading">
                         <h1>Create Account</h1>
                     </div>
-                    <div class="FirstName">
-                        <label for="Firstname">First Name<span class="text-danger">*</span></label>
-                    </div>
-                    <div class="textfield">
-                        <input id="FirstName" type="text"  class="form-control same-font" placeholder="Enter your Name"
-                            required />
-                        <p id="F_Name_Error"></p>
-                    </div>
-
-                    <div class="LastName">
-                        <label for="LastName">Last Name<span class="text-danger">*</span></label>
-                    </div>
-                    <div class="textfield1">
-                        <input type="text" id="LastName" class="form-control same-font" placeholder="Enter your Father Name"
-                            required />
-                        <p id="L_Name_Error"></p>
-                    </div>
-
-                    <div class="UserName">
-                        <label for="UserName">User Name<span class="text-danger">*</span></label>
-                    </div>
-                    <div class="textfield2">
-                        <input type="text" id="UserName" class="form-control same-font" placeholder="Enter your User Name"
-                            required />
-                        <p id="U_Name_Error"></p>
-                    </div>
-
-                    <div class="Email">
-                        <label for="Email">Email<span class="text-danger">*</span></label>
-                    </div>
-                    <div class="textfield3">
-                        <input type="text" id="Email" class="form-control same-font" placeholder="Enter your Email"
-                            required />
-                        <p id="Email_Error"></p>
-                    </div>
-                    <div class="Password">
-                        <label for="password">password<span class="text-danger">*</span></label>
-                    </div>
-                    <div class="textfield4">
-                        <input type="password" id="password" class="form-control1" placeholder="Password" required />
-                    </div>
-                    <p id="Password_Error"></p>
-
-                    <div class="CPassword">
-                        <label for="Cpassword">Conform password<span class="text-danger">*</span></label>
-                    </div>
-                    <div class="textfield5">
-                        <input type="password" id="Cpassword" class="form-control1" placeholder="Conform Password"
-                            required />
-                    </div>
-                    <p id="Cpassword_Error"></p>
-                    <div class="Choose">
-                    </div>
-                    <!--Light White-->
-                    <button type="button" class="btn1 btn-light">Choose me</button>
-                    <div class="IText">
-                        <p>** Max Image Size 16MB **</p>
-                    </div>
-                    <!-- Default checked -->
-
-                    <div class="Check">
-                        <!-- Default unchecked -->
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                            <label class="custom-control-label" for="defaultUnchecked"></label>
+                    <div>
+                        <div class="FirstName">
+                            <label for="Firstname">First Name<span class="text-danger">*</span></label>
                         </div>
-                    </div>
-                    <div class="checkText">
-                        <p>I agree to the Terms and Conditions</p>
-                    </div>
-                    <button type="button" class="btnSignUp btn-primary"onClick="signUp1()">SignUp</button>
+                        <div class="textfield">
+                            <input type="text" class="form-control =same-font" name="fname" id="FirstName" placeholder="Enter your Name" />
+                            <b> <p id="F_Name_Error" class="text-danger"></p></b>
+                        </div>
 
+                        <div class="LastName">
+                            <label for="LastName">Last Name<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="textfield1">
+                            <input type="text" id="LastName" class="form-control same-font" placeholder="Enter your Father Name" required />
+                            <b> <p id="L_Name_Error" class="text-danger"></p></b>
+                        </div>
+
+                        <div class="UserName">
+                            <label for="UserName">User Name<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="textfield2">
+                            <input type="text" id="UserName" class="form-control same-font" placeholder="Enter your User Name" required />
+                            <b> <p id="U_Name_Error" class="text-danger"></p></b>
+                        </div>
+
+                        <div class="Email">
+                            <label for="Email">Email<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="textfield3">
+                            <input type="text" id="Email" class="form-control same-font" placeholder="Enter your Email" required />
+                            <b> <p id="Email_Error" class="text-danger"></p></b>
+                        </div>
+                        <div class="Password">
+                            <label for="password">password<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="textfield4">
+                            <input type="password" id="password" class="form-control1" placeholder="Password" required />
+
+                        </div>
+                        <b> <p id="Password_Error" class="text-danger text-center"></p></b>
+
+                        <div class="CPassword">
+                            <label for="Cpassword">Conform password<span class="text-danger">*</span></label>
+                        </div>
+                        <div class="textfield5">
+                            <input type="password" id="Cpassword" class="form-control1" placeholder="Conform Password" required />
+                        </div>
+                        <b> <p id="Cpassword_Error" class="text-danger text-center"></p></b>
+                        <div class="Choose">
+                        </div>
+                        <!--Light White-->
+                        <button type="button" class="btn1 btn-light">Choose me</button>
+                        <div class="IText">
+                            <p>** Max Image Size 16MB **</p>
+                        </div>
+                        <!-- Default checked -->
+
+                        <div class="Check">
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                <label class="custom-control-label" for="defaultUnchecked"></label>
+                            </div>
+                        </div>
+                        <div class="checkText">
+                            <p>I agree to the Terms and Conditions</p>
+                        </div>
+                        
+                        <a href="#logo"> <button type="button" class="btnSignUp btn-primary" onclick="signUp1()">submit</button></a>
+                        
+                    </div>
                     <div class="acounClass">
                         <p>have an account?</p>
                     </div>
@@ -142,9 +144,28 @@
 
 
 
+
         </div>
     </div>
+    <!-- <div class="swal-overlay swal-overlay--show-modal" id="pop_success" tabindex="-1">
+        <div class="swal-modal" role="dialog" aria-modal="true">
+            <div class="swal-icon swal-icon--custom"><img src="https://thumbs.gfycat.com/QuaintLikelyFlyingfish-size_restricted.gif"></div>
+            <div class="swal-title">Congratulation, account created successfully!</div>
+            <div class="swal-footer">
+                <div class="swal-button-container">
 
+                    <button class="swal-button swal-button--confirm">OK</button>
+
+                    <div class="swal-button__loader">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div> -->
 
 
 
@@ -165,7 +186,7 @@
 
 
 
-    
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -175,6 +196,11 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.5/dist/sweetalert2.all.min.js"></script>
+        
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 </body>
 
 </html>

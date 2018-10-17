@@ -74,7 +74,7 @@ if (password != repassword) {
 }
    
     let obj = {
-        Fname: Fname,
+        Fname: fname,
         Lname: Lname,
         Uname: Uname,
         Email: Email,

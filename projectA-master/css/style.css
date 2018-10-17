@@ -16,6 +16,13 @@
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
 }
+.swal-overlay.swal-overlay--show-modal {
+    display: none;
+}
+
+.swal-overlay.swal-overlay--show-modal.active {
+display: block;
+}
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
