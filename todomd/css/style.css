@@ -1,6 +1,27 @@
 body{
     /* background-image: url('https://gifimage.net/wp-content/uploads/2018/06/transparent-bubbles-gif-5.gif'); */
 }
+.parent{
+    display: flex;
+    width: 100%;
+flex-direction: column;
+}
+.input_parent{
+display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.input_child{
+    width: 50%;
+    
+}
+.md-form label {
+    position: absolute !important;
+    top: .65rem !important;
+    left: 25% !important;
+}
 .navbar-text1 {
     display: inline-block !important;
     padding-top: 0.5rem !important;
@@ -15,14 +36,14 @@ body{
   }
  .form-control{
     width: 90% !important;
-    text-align: center;
+    
 
  }
 
  .Add_edit_Btn{
     display: flex;
     justify-content: center;
-    padding-left: 48px;
+    
  }
 .list_parent{
     
@@ -49,14 +70,24 @@ body{
     background-color: #F3F3F3;
  }
  .text_input{
-    margin-left: 42%;
+    /* margin-left: 42%; */
 
  }
  .Error_text {
-    font-weight: bold !important;
-    color: red;
-    padding-left: 471px;
+ 
+    color: black;
+    height: 36px;
+    text-align: -webkit-center;
+    border-radius: 5px;
+    border: 1px #F5C6CB solid;
+    background: #F8D7DA;
+    width: 90%;
  }
  .btn_parent{
-     
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    margin-top: -45px;
+    padding-right: 109px;
  }
