@@ -45,8 +45,9 @@ display: flex;
     justify-content: center;
     
  }
-.list_parent{
-    
+.alert{
+    width: 90% !important;
+    text-align: center !important;
 }
 
  #todolist{

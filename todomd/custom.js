@@ -1,72 +1,115 @@
-let userinput = document.getElementById('form122');
-let ul = document.getElementById('todo3');
-let Emtyerror = document.getElementById('Emty_error');
-var edit = false;
+let userInput = document.getElementById('input');
+let ul = document.getElementById('todolist');
+let EmtyError = document.getElementById('Emty_error');
 
-var todos = []
+let todos = []
 
-function addtodo() {
-
-    if (userinput.value == "") {
-        Emtyerror.innerHTML = 'You Do not Enter Task';
-        Emtyerror.className = 'Error_text';
-    }
-
-    else {
-        todos.push(userinput.value);
-        render()
-        console.log(todos)
-    }
-    userinput.addEventListener('blur', () => {
-        if (userinput.value !== "")
-            Emtyerror.innerHTML = '';
-            Emtyerror.className = '';
-    })
-}
-
-function render() {
-    var items = document.getElementById('todolist');
-    items.innerHTML = ''
-    for (var i = 0; i <= todos.length - 1; i++) {
-      
-        items.innerHTML += `
-        
-            
-       
-            <li  name = ${i}>${todos[i]}</li>
-            <div  class = "btn_parent test">
-            <button id="delete" class="btn btn-default" onclick="deleteListElement(${i})">Delete <i class="fa fa-trash"></i></i></button>
-            <button id = "edit" class="btn btn-default" onclick = "edit1(${i})">Edit <i class="fa fa-magic ml-1"></i></button>
-            </div>
-        
-       
-        `
- //  <li>${todos[i]}</li>
-        // <div class = "btn_parent">
-        // <button id="delete" class="btn btn-default" onclick="deleteListElement(${i})">Delete <i class="fa fa-trash"></i></i></button>
-        // <button id = "edit" class="btn btn-default" onclick = "edit1()">Edit <i class="fa fa-magic ml-1"></i></button>
-        // </div>`
+function addTodo(){
+    const{value} = userInput;
+    if(userInput.value === ''){
+        EmtyError.innerHTML  = `<div class = "alert alert-danger" role= "alert">
+        You do not enter task
+        </div>`;
+        userInput.addEventListener('blur', () =>{
+            if (userInput.value !== ''){
+                EmtyError.innerHTML='';
+            }
+        })
+    }else{
+        todos.push(userInput.value);
+        renderItem(value);
     }
 }
-
-
-
-function deleteListElement(i) {
-    todos.splice(i, 1);
-    render()
-   
+/**
+ * @param String text
+ */
+function renderItem(text){
+    ul.innerHTML += `
+    <li data-set-mode = "false" id = "${new Date().getMilliseconds()}">
+    <p>${text}</p>
+    `
 }
 
+// function addTodo() {
+//     const { value } = userInput;
+//     if (userInput.value === '') {
+//         console.log(userInput)
+//         EmtyError.innerHTML = `<div class="alert alert-danger" role="alert">
+//         You Do Not Enter Task
+//       </div>`;
+//         userInput.addEventListener('blur', () => {
+//             if (userInput.value !== '') {
+//                 EmtyError.innerHTML = '';
+//             }
+//         })
+//     } else {
+//         todos.push(value);
+//         renderItem(value);
+//     }
+// }
 
-function edit1(i)
-{console.log(i)
+// /**
+//  * @param {Number} id 
+//  */
+// function remove(id) {
+//     document.getElementById(id).remove();
     
-  var hel =  document.getElementById("test")
+// }
 
-    // document.getElementsByClassName('test').s
-   
-    // edit = !edit
-    render()
+// /**
+//  * 
+//  * @param {Element} element 
+//  * @param { String } text
+//  */
+
+// function renderItem(text) {
     
-}
+//     ul.innerHTML += 
+//     `
+//         <li data-edit-mode="false" id="${new Date().getMilliseconds()}">
+//             <p>${text}</p>
+//             <button onclick="onEdit(this)">Edit</button>
+//             <button onclick="remove(this.parentElement.id)">Delete</button>
+//         </li>
+//     `;
+    
+// }
+
+// /**
+//  * 
+//  * @param { String } text
+//  * @param { Number } id
+//  */
+// function modify(text, id) {
+//     document.getElementById(id).innerHTML = `
+//         <li data-edit-mode="false" id="${id}">
+//             <p>${text}</p>
+//             <button onclick="onEdit(this)">Edit</button>
+//             <button onclick="remove(this)">Delete</button>
+//         </li>
+//     `;
+   
+// }
+
+// /**
+//  * 
+//  * @param {Element} element 
+//  */
+// function onEdit(element) {
+//     const parent = element.parentElement;
+//     element.parentElement.dataset.editMode = !element.parentElement.dataset.editMode;
+  
+
+//     if (element.parentElement.dataset.editMode) {
+//         const p = parent.querySelector('p');
+//         const text = p.innerHTML;
+//         parent.innerHTML = `
+//                     <li id="${parent.id}">
+//                         <input type="text" value="${text}" />
+//                         <button onclick="modify(this.previousElementSibling.value, this.parentElement.id)">Modify</button>
+//                     </li>
+//         `;
+        
+//     }
+// }
 
