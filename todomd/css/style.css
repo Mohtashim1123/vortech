@@ -13,7 +13,7 @@ display: flex;
     width: 100%;
 }
 
-.input_child{
+#input_child{
     width: 50%;
     
 }
@@ -35,7 +35,7 @@ display: flex;
       padding-left: 50px !important;
   }
  .form-control{
-    width: 90% !important;
+    /* width: 90% !important; */
     
 
  }
@@ -61,6 +61,7 @@ display: flex;
  li{
     border-bottom: groove;
     font-size: 25px;
+    list-style: none;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -91,4 +92,13 @@ display: flex;
     flex-wrap: wrap-reverse;
     margin-top: -45px;
     padding-right: 109px;
+ }
+ .liChild{
+    border: none;
+    border-bottom: none;
+    box-shadow: none;
+    width: 85%;
+}
+ .EditForm{
+    width: 100%;
  }
