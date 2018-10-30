@@ -1,0 +1,37 @@
+.register-form {
+    display: none;
+}
+
+.login-form {
+    display: none;
+}
+
+.active.register-form {
+    display: block;
+}
+
+.active.login-form {
+    display: block;
+}
+
+
+.auth-wrapper {
+    width: 60%;
+    margin: 10px auto;
+}
+
+.card-body { 
+    text-align: left;
+}
+
+.add-edit-products {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.product-list-wrapper > .card {
+    float: left;
+    width: 400px;
+    margin: 5px;
+}
+

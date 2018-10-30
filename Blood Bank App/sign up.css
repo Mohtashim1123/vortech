@@ -1,0 +1,54 @@
+body{
+   background-image: url('http://r23.imgfast.net/users/2314/14/04/12/album/bloodm10.gif');
+   background-repeat: no-repeat;
+   background-size: 100%;
+   opacity: 1;
+}
+.parent{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.child{
+    border: 2px solid black;
+    height: 550px;
+    width: 34%;
+    display: flex;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: -8px 0px 9px 5px;
+    background-color: beige;
+    justify-content: center;
+    padding-top: 50px;
+    margin-top: 50px;
+    background-image: url(http://www.bloodgroupfinder.org/img/logo-2.png );
+    background-size: 100%;
+    background-repeat: no-repeat;
+
+}
+.heading{
+    padding-top: 265px;
+    display: flex;
+    justify-content: center;
+    color: brown;
+    font-family: monospace;
+    flex-wrap: wrap;
+}
+.SignUpParent{
+    border: 2px solid;
+    width: 50%;
+    margin-top: 50px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 4px 0px 9px 5px;
+}
+.headingSignUp{
+    display: flex;
+    justify-content: center;
+    color: brown;
+    font-family: monospace;
+}
+.btnCenter{
+    display: flex;
+    justify-content: center;
+}

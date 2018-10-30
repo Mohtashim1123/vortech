@@ -1,0 +1,77 @@
+let userInput = document.getElementById('input');
+let ul = document.getElementById('todolist');
+let EmtyError = document.getElementById('Emty_error');
+
+let todos = []
+
+function addTodo() {
+    const { value } = userInput;
+
+    if (userInput.value === '') {
+        EmtyError.innerHTML = `<div class = "alert alert-danger" role= "alert">
+        You do not enter task
+        </div>`;
+        userInput.addEventListener('blur', () => {
+            if (userInput.value !== '') {
+                EmtyError.innerHTML = '';
+            }
+        })
+    } else {
+        todos.push(userInput.value);
+        renderItem(value);
+    }
+}
+
+/**
+ * @param {Element} element
+ * @param {String} text
+ */
+function renderItem(text) {
+    ul.innerHTML += `
+    <li data-set-mode = "false" id = "${new Date().getMilliseconds()}">
+    <p>${text}</p>
+    <button type="button" class="btn btn-primary" onclick="onEdit(this)" style="width: 95px">Edit</button>
+    <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
+    `
+}
+
+/**
+ * @param {Number} id   
+ */
+function remove(id) {
+    document.getElementById(id).remove();
+}
+
+/**
+ * @param {Element} element
+ */
+function onEdit(element) {
+    const parent = element.parentElement;
+    element.parentElement.dataset.editMode = !element.parentElement.dataset.editMode;
+    if (element.parentElement.dataset.editMode) {
+        const p = parent.querySelector('p');
+        const text = p.innerHTML;
+        parent.innerHTML =
+            `
+        <li class = "liChild" id = "${parent.id}">
+        <input class="form-control EditForm form-control-lg" type="text" value = "${text}" placeholder="Large input"> 
+        <button type="button" class="btn btn-success" onclick = "modify(this.previousElementSibling.value, this.parentElement.id)">Update</button>
+        <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
+        `
+    }
+}
+/**
+ * @param {String} text
+ * @param {id} Number
+ */
+function modify(text, id) {
+    console.log(remove)
+    document.getElementById(id).innerHTML =
+        `
+    <li class = "liChild" data-edit-mode = "false" id="${id}">
+    <p>${text}</p>
+    <button type="button" class="btn btn-primary" onclick="onEdit(this)">Edit</button>
+    <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
+    </li>
+    `
+}

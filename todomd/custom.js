@@ -16,64 +16,67 @@ function addTodo() {
             if (userInput.value !== '')
                 EmtyError.innerHTML = '';
         })
-    } else {
+    }
+    else if (userInput.value.length > 20) {
+        EmtyError.innerHTML = `<div class = "alert alert-danger" role= "alert">
+        Character Must Be Less Than 20
+    </div>`;
+    userInput.addEventListener('blur',() =>{
+        if(userInput.value!=='')
+        EmtyError.innerHTML = '';
+    })
+    }
+    else {
         todos.push(userInput.value);
+        localStorage.setItem("todoData", JSON.stringify(todos))
         renderItem(value);
     }
 }
 
-/**
- * @param {Element} element
- * @param {String} text
- */
 function renderItem(text) {
     const id = new Date().getMilliseconds()
-    ul.innerHTML += `
-    <li data-set-mode = "false" id = "${id}">
-        <p>${text}</p>
-        <button type="button" class="btn btn-primary" onclick="onEdit(${id})" style="width: 95px">Edit</button>
-        <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
-    </li>
-    `;
+    ul.innerHTML +=
+        `
+    <li data-mode = "false" id = "${id}"
+    <p>${text}</p>
+    <button type="button" class="btn btn-primary" onclick="onEdit(${id})" style="width: 95px">Edit</button>
+     <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
+    `
 }
-
 /**
- * @param {Number} id   
+ * @param {Number} id
  */
 function remove(id) {
     document.getElementById(id).remove();
 }
-
 /**
- * @param {Element} element
+ * @param {Number} id
  */
 function onEdit(id) {
-    const li = document.getElementById(id);
+    const li = document.getElementById(id)
     li.dataset.editMode = !li.dataset.editMode;
-
     if (li.dataset.editMode) {
-        const p = li.querySelector('p');
+        const p = li.querySelector('p')
         const text = p.innerHTML;
-        li.outerHTML = `
-        <li id="${id}" data-set-mode="true">
-            <input class="form-control EditForm form-control-lg" type="text" value="${text}" placeholder="Typing..."> 
-            <button type="button" class="btn btn-success" onclick = "modify(this.previousElementSibling.value, ${id})">Update</button>
-            <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
-        </li>
-        `;
+        li.outerHTML =
+            `<li id = ${id} data-edit-mode = "true">
+        <input class="form-control EditForm form-control-lg" type="text" value="${text}" placeholder="Typing..."> 
+        <button type="button" class="btn btn-success" onclick = "modify(this.previousElementSibling.value, ${id})">Update</button>
+        <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
+        `
     }
 }
-
 /**
  * @param {String} text
- * @param {id} Number
+ * @param {Number} id
  */
 function modify(text, id) {
+    localStorage.setItem("todoData", JSON.stringify(text))
     document.getElementById(id).innerHTML = " ";
-    document.getElementById(id).innerHTML += `
-        <p>${text}</p>
-        <button type="button" class="btn btn-primary" onclick="onEdit(${id})" style="width: 95px">Edit</button>
-        <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
+    document.getElementById(id).innerHTML +=
+        `
+    <p>${text}</p>
+    <button type="button" class="btn btn-primary" onclick="onEdit(${id})" style="width: 95px">Edit</button>
+     <button type="button" class="btn btn-danger" onclick = "remove(this.parentElement.id)">Delete</button>
     `;
 }
-

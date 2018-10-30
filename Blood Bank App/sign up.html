@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blood bank</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="./sign up.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Start your project here-->
+    <div class="parent">
+        <div class="child">
+            <div class="heading">
+                <h1>Blood Donation</h1>
+            </div>
+        </div>
+
+
+        <div class="SignUpParent">
+            <div class="headingSignUp">
+                <h1>Sign Up</h1>
+            </div>
+            <form action="login" method="POST">
+                <div  id="firstNameError">
+                <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="firstName" class="form-control form-control-sm">
+                    <label for="inputSMEx" >First Name</label>
+                </div>
+            </div>
+                <!-- <p id="firstNameError" class="text-danger"></p> -->
+
+                <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="lastName" class="form-control form-control-sm">
+                    <label for="inputSMEx">Last Name</label>
+                </div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="userName" class="form-control form-control-sm">
+                    <label for="inputSMEx">User Name</label>
+                </div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="text" id="Email" class="form-control form-control-sm">
+                    <label for="inputSMEx">Email</label>
+                </div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="text" id="Password" class="form-control form-control-sm">
+                    <label for="inputSMEx">Password</label>
+                </div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="text" id="ConformPassword" class="form-control form-control-sm">
+                    <label for="inputSMEx">Conform Password</label>
+                </div>
+                <div class="btnCenter"> <button type="button" class="btn btn-danger" onClick="signUp()">SUBMIT</button></div>
+        </div>
+    </div>
+    </form>
+
+    <!-- /Start your project here-->
+
+    <!-- SCRIPTS -->
+    <script src="./signup.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+
+</html>
