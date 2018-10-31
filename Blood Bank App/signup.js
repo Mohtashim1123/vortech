@@ -9,6 +9,7 @@ function signUp() {
 
 
     if (Firstname.value === '') {
+        const {value} = Firstname;
         FnameError.innerHTML = `<div class="md-form form-sm text-danger">
         <i class="fa fa-user prefix text-danger"></i>
         <input type="text" id="firstName" class="form-control form-control-sm text-danger">

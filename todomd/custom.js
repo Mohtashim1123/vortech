@@ -3,7 +3,7 @@ let ul = document.getElementById('todolist');
 let EmtyError = document.getElementById('Emty_error');
 
 let todos = []
-
+    
 function addTodo() {
     const { value } = userInput;
     if (userInput.value === '') {
