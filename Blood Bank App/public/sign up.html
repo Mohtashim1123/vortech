@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blood bank</title>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/dist/sweetalert2.all.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/CHANGELOG.md">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.common.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/LICENSE">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/package.json">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/README.md">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/sweetalert2.d.ts">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="./sign up.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Start your project here-->
+    <div class="parent">
+        <div class="child">
+            <div class="heading">
+                <h1>Blood Donation</h1>
+            </div>
+        </div>
+
+
+        <div class="SignUpParent">
+            <div class="headingSignUp">
+                <h1>Sign Up</h1>
+            </div>
+            <form onsubmit="signUp()" action="login" method="POST">
+                <div id="firstNameError">
+                    <div class="md-form form-sm">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="text" id="firstName" name="firstName" class="my-field form-control form-control-sm">
+                        <label for="inputSMEx">First Name</label>
+                    </div>
+                </div>
+                <div id="lastNameError">
+                    <div class="md-form form-sm">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="text" id="lastName" name="lastName" class="my-field form-control form-control-sm">
+                        <label for="inputSMEx">Last Name</label>
+                    </div>
+                </div>
+                <div id="UserNameError">
+                    <div class="md-form form-sm">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="text" id="userName" name="userName" class="my-field form-control form-control-sm">
+                        <label for="inputSMEx">User Name</label>
+                    </div>
+                </div>
+                <div id="EmailError">
+                    <div class="md-form form-sm">
+                        <i class="fa fa-envelope prefix"></i>
+                        <input type="text" id="Email" name="Email" class="my-field form-control form-control-sm">
+                        <label for="inputSMEx">Email</label>
+                    </div>
+                </div>
+                <div id="passwordError">
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="Password" name="Password" class="my-field form-control form-control-sm">
+                    <label for="inputSMEx">Password</label>
+                </div>
+            </div>
+            <div id="CpasswordError">
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="ConformPassword" name="ConformPassword" class="my-field form-control form-control-sm">
+                    <label for="inputSMEx">Conform Password</label>
+                </div>
+            </div>
+                <div class="btnCenter"> <button type="button" class="btn btn-danger" onClick="signUp()">SUBMIT</button></div>
+        </div>
+    </div>
+
+    </form>
+
+    <!-- /Start your project here-->
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBqWiuqVP6FFxNuMvUOhP0hFDFuJU--hIA",
+        authDomain: "blood-app-695b0.firebaseapp.com",
+        databaseURL: "https://blood-app-695b0.firebaseio.com",
+        projectId: "blood-app-695b0",
+        storageBucket: "",
+        messagingSenderId: "605915712587"
+      };
+      firebase.initializeApp(config);
+    //   let func = document.getElementById('function');
+    //   let dbRef = firebase.database().ref().child('text');
+    </script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <!-- SCRIPTS -->
+    <script src="./signup.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+
+</html>
