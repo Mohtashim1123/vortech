@@ -97,7 +97,7 @@ function signUp() {
                     text: 'Successfully',
                     type: 'success',
                     confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html">Ok</a>',
-                     
+
                 })
             })
             .catch(function (error) {
@@ -114,32 +114,129 @@ function signUp() {
 
 // Login
 var spiner = document.getElementById('spiner')
-function login(){
+function login() {
     console.log("djkaczsjl")
     let Email = document.getElementById('Email')
     let password = document.getElementById('password')
-    spiner.className="fa fa-spinner fa-spin";
+    spiner.className = "fa fa-spinner fa-spin";
     firebase.auth().signInWithEmailAndPassword(Email.value, password.value)
-    .then(function(user){
-        spiner.className = "";
-        swal({
-            title: 'Sign Up',
-            text: 'Successfully',
-            type: 'success',
-            confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
-             
+        .then(function (user) {
+            spiner.className = "";
+            swal({
+                title: 'Sign Up',
+                text: 'Successfully',
+                type: 'success',
+                confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
+
+            })
         })
-    })
-    .catch(function(error) {
-        spiner.className = "";
-        swal({
-            title: 'Error!',
-            text: 'Sign Up Already',
-            type: 'error',
-            confirmButtonText: 'Cancel'
-        })
-      });
+        .catch(function (error) {
+            spiner.className = "";
+            swal({
+                title: 'Error!',
+                text: 'Sign Up Already',
+                type: 'error',
+                confirmButtonText: 'Cancel'
+            })
+        });
 }
+function modaal() {
+    let firstName = document.getElementById('First_Name')
+    let lastName = document.getElementById('Last_Name')
+    let CNIC = document.getElementById('CNIC')
+    let Age = document.getElementById('AGE')
+    let bloodGroup = document.getElementById('Blood_Group')
+    let errorFname = document.getElementById('ErrorFname')
+    let errorLname = document.getElementById('ErrorLname')
+    let errorCnic = document.getElementById('ErrorCnic')
+    let errorAge = document.getElementById('ErrorAge')
+    let errorBloodGroup = document.getElementById('ErrorBloodGroup')
+
+    if (firstName.value === '') {
+        errorFname.innerHTML = `Please Fill First Name*`
+    }
+    else if ((firstName.value.length <= 3) || firstName.value.length > 20) {
+        errorFname.innerHTML = `Character Must be 3 to 20`;
+    }
+    else if(!firstName.value.match(/[a-zA-Z]/)){
+        errorFname.innerHTML=`Invaild*`
+    }
+    else if (lastName.value === '') {
+        errorLname.innerHTML = `Please Fill Last Name*`
+    }
+    else if ((lastName.value.length <= 3) || lastName.value.length > 20) {
+        errorLname.innerHTML = `Character Must be 3 to 20`;
+    }
+    else if(!lastName.value.match(/[a-zA-Z]/)){
+        errorLname.innerHTML=`Invaild*`
+    }
+    else if (CNIC.value === '') {
+        errorCnic.innerHTML = `Please Fill CNIC*`
+    }
+    else if (CNIC.value.length < 14 || CNIC.value.length > 14) {
+        errorCnic.innerHTML = `Invaild CNIC*`
+    }
+    else if (Age.value === '') {
+        errorAge.innerHTML = `Age*`
+    }
+    else  if (Age.value.length < 2 || Age.value.length > 2) {
+        errorAge.innerHTML = `Invaild Age*`
+    }
+    else if(!Age.value.indexOf('-') <=0 && !Age.value.indexOf('+') <=0 ){
+        errorAge.value=`Invaild**`
+    }
+    else if(bloodGroup.value == ''){
+        errorBloodGroup.innerHTML=`Blood Group*`
+    }
+    else if(bloodGroup.value.length < 2 || bloodGroup.value.length > 2){
+        errorBloodGroup.innerHTML=`Invaild Group*`
+    }
+    else if(bloodGroup.value.indexOf('+')<=0 && bloodGroup.value.indexOf('-')<=0){
+        errorBloodGroup.innerHTML=`Invaild*`
+    }
+    firstName.addEventListener('blur', () => {
+        if (firstName.value.length >= 3)
+            errorFname.innerHTML = '';
+    })
+    lastName.addEventListener('blur', () => {
+        if (lastName.value.length >= 3)
+            errorLname.innerHTML = '';
+    })
+    CNIC.addEventListener('blur', () => {
+        if (CNIC.value.length == 14)
+            errorCnic.innerHTML = '';
+    })
+    Age.addEventListener('blur', () => {
+        if (Age.value.length == 2)
+            errorAge.innerHTML = '';
+    })
+    bloodGroup.addEventListener('blur', () => {
+        if (bloodGroup.value.length == 2)
+            errorBloodGroup.innerHTML = '';
+    })
+    // else{
+    //     firebase.auth().createUserWithEmailAndPassword(Email.value, password.value)
+    //         .then(function (user) {
+    //             let obj = {
+    //                 name: firstName.value,
+    //                 Lname: lastName.value,
+    //                 CNIC: CNIC.value,
+    //                 Age: Age.value,
+    //                 bloodGroup: bloodGroup.value
+    //             }
+    //             let uid = firebase.auth().currentUser.uid;
+    //             firebase.database().ref('users/' + uid).set(obj)
+    //             swal({
+    //                 title: 'Donate',
+    //                 text: 'Successfully',
+    //                 type: 'success',
+    //             })
+    //         })
+    // }
+
+}
+
+
 
 
 

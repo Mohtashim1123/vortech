@@ -1,0 +1,49 @@
+body{
+    background-color: brown;
+}
+.text_Style{
+    font-family: cursive;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+    width: 73%;
+}
+.dropdown{
+    border: none;
+}
+.navbar {
+    display: flex ;
+    justify-content: flex-end;
+}
+.tableStyle{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    
+}
+.table {
+    width: 70% !important;
+    border: 2px solid !important;
+    background-color: transparent !important;
+    color: aliceblue;
+}
+.headingStyle{
+    display: flex;
+    justify-content: center;
+    margin-top: 9px;
+    color: white;
+    font-family: cursive;
+}
+.dropLeft{
+    padding-right: 77%;
+}
+/* drop */
+.dropdown-toggle{
+    display: inline-block !important;
+    margin-left: .255em !important;
+    border-right: .3em solid transparent !important;
+    cursor: pointer !important;
+    border-bottom: 0 !important;
+    border-left: .3em solid transparent !important;
+}
+/* drop */
