@@ -47,3 +47,22 @@ body{
     border-left: .3em solid transparent !important;
 }
 /* drop */
+.bg{
+    background-image: url('http://www.udg.ethz.ch/research/tutorial/_jcr_content/par/fullwidthimage/image.imageformat.fullwidthwidepage.1480286592.gif');
+    height: 189px;
+}
+.h1Center{
+    display: flex;
+    justify-content: center;
+    color: antiquewhite;
+    margin-top: 50px;
+}
+.pCenter{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 83%;
+    padding-left: 117px;
+    margin-top: 24px;
+    color: wheat;
+}

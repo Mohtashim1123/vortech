@@ -2,18 +2,31 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Blood bank</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="./blood.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blood bank</title>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/dist/sweetalert2.all.min.js">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/CHANGELOG.md">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.common.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/LICENSE">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/package.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/README.md">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/sweetalert2.d.ts">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="./blood.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,7 +42,7 @@
         <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuAvatar">
             <a class="c-dropdown__item dropdown-item" href="#">Mohtashim</a>
             <div class="dropdown-divider"></div>
-            <a class="c-dropdown__item dropdown-item" href="#">Logout</a>
+            <a class="c-dropdown__item dropdown-item" href="#" onclick="logout()">Logout</a>
         </div>
     </div>
   </nav>
@@ -121,19 +134,88 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary btn-sm" onclick="modaal()">Submit</button>
+          <button type="button" class="btn btn-primary btn-sm" onclick="modal()">Submit</button>
         </div>
       </div>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <!-- Footer -->
+  <footer class="page-footer font-small ">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12 py-5">
+                  <div class="mb-5 flex-center">
+                      <a class="fb-ic">
+                          <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                      </a>
+                      <a class="tw-ic">
+                          <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                      </a>
+                      <a class="gplus-ic">
+                          <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                      </a>
+                      <a class="li-ic">
+                          <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                      </a>
+                      <a class="ins-ic">
+                          <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                      </a>
+                      <a class="pin-ic">
+                          <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2018 Copyright:
+          <a href="https://mdbootstrap.com/education/bootstrap/"> Blood Donation</a>
+      </div>
+      <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
   <!-- Central Modal Small -->
   <!-- modal -->
   <!-- /Start your project here-->
 
   <!-- SCRIPTS -->
+  
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+  <script>
+      // Initialize Firebase
+      var config = {
+          apiKey: "AIzaSyBqWiuqVP6FFxNuMvUOhP0hFDFuJU--hIA",
+          authDomain: "blood-app-695b0.firebaseapp.com",
+          databaseURL: "https://blood-app-695b0.firebaseio.com",
+          projectId: "blood-app-695b0",
+          storageBucket: "",
+          messagingSenderId: "605915712587"
+      };
+      firebase.initializeApp(config);
+  //   let func = document.getElementById('function');
+  //   let dbRef = firebase.database().ref().child('text');
+  </script>
+  <script src="sweetalert2.all.min.js"></script>
+  <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+  <!-- SCRIPTS -->
   <script src="./signup.js"></script>
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap tooltips -->
   <script type="text/javascript" src="js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->

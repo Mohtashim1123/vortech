@@ -19,7 +19,6 @@ function signUp() {
 
     // Fname
     if (Fname.value === '') {
-        debugger
         fnameerror.innerHTML = `
         <div class="md-form form-sm text-danger">
         <i class="fa fa-user prefix" text-danger></i>
@@ -115,7 +114,6 @@ function signUp() {
 // Login
 var spiner = document.getElementById('spiner')
 function login() {
-    console.log("djkaczsjl")
     let Email = document.getElementById('Email')
     let password = document.getElementById('password')
     spiner.className = "fa fa-spinner fa-spin";
@@ -123,7 +121,7 @@ function login() {
         .then(function (user) {
             spiner.className = "";
             swal({
-                title: 'Sign Up',
+                title: 'Login',
                 text: 'Successfully',
                 type: 'success',
                 confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
@@ -140,7 +138,8 @@ function login() {
             })
         });
 }
-function modaal() {
+// modal
+function modal() {
     let firstName = document.getElementById('First_Name')
     let lastName = document.getElementById('Last_Name')
     let CNIC = document.getElementById('CNIC')
@@ -155,11 +154,11 @@ function modaal() {
     if (firstName.value === '') {
         errorFname.innerHTML = `Please Fill First Name*`
     }
-    else if ((firstName.value.length <= 3) || firstName.value.length > 20) {
+    else if ((firstName.value.length <= 2) || firstName.value.length > 20) {
         errorFname.innerHTML = `Character Must be 3 to 20`;
     }
-    else if(!firstName.value.match(/[a-zA-Z]/)){
-        errorFname.innerHTML=`Invaild*`
+    else if (!firstName.value.match(/[a-zA-Z]/)) {
+        errorFname.innerHTML = `Invaild*`
     }
     else if (lastName.value === '') {
         errorLname.innerHTML = `Please Fill Last Name*`
@@ -167,8 +166,8 @@ function modaal() {
     else if ((lastName.value.length <= 3) || lastName.value.length > 20) {
         errorLname.innerHTML = `Character Must be 3 to 20`;
     }
-    else if(!lastName.value.match(/[a-zA-Z]/)){
-        errorLname.innerHTML=`Invaild*`
+    else if (!lastName.value.match(/[a-zA-Z]/)) {
+        errorLname.innerHTML = `Invaild*`
     }
     else if (CNIC.value === '') {
         errorCnic.innerHTML = `Please Fill CNIC*`
@@ -179,21 +178,67 @@ function modaal() {
     else if (Age.value === '') {
         errorAge.innerHTML = `Age*`
     }
-    else  if (Age.value.length < 2 || Age.value.length > 2) {
+    else if (Age.value.length < 2 || Age.value.length > 2) {
         errorAge.innerHTML = `Invaild Age*`
     }
-    else if(!Age.value.indexOf('-') <=0 && !Age.value.indexOf('+') <=0 ){
-        errorAge.value=`Invaild**`
+    // else if(!Age.value.indexOf('-') <=0 && !Age.value.indexOf('+') <=0 ){
+    //     errorAge.value=`Invaild**`
+    // }
+    else if (bloodGroup.value === '') {
+        console.log("sklalks")
+        errorBloodGroup.innerHTML = `Blood Group*`
     }
-    else if(bloodGroup.value == ''){
-        errorBloodGroup.innerHTML=`Blood Group*`
+    else if (bloodGroup.value.length < 2 || bloodGroup.value.length > 2) {
+        errorBloodGroup.innerHTML = `Invaild Group*`
     }
-    else if(bloodGroup.value.length < 2 || bloodGroup.value.length > 2){
-        errorBloodGroup.innerHTML=`Invaild Group*`
+    else if (bloodGroup.value.indexOf('+') <= 0 && bloodGroup.value.indexOf('-') <= 0) {
+        errorBloodGroup.innerHTML = `Invaild*`
     }
-    else if(bloodGroup.value.indexOf('+')<=0 && bloodGroup.value.indexOf('-')<=0){
-        errorBloodGroup.innerHTML=`Invaild*`
+    else {
+        swal({
+            title: 'Donated',
+            type: 'success',
+            confirmButtonText: '<a href = "file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
+            confirmButtonColor: '#3085d6'
+        })
+
+            .then(function savemessage(firstName, lastName, CNIC, Age, bloodGroup) {
+                var database = firebase.database();
+                var firstName = document.getElementById('First_Name').value
+                var lastName = document.getElementById('Last_Name').value
+                var CNIC = document.getElementById('CNIC').value
+                var Age = document.getElementById('AGE').value
+                var bloodGroup = document.getElementById('Blood_Group').value;
+                let uid = firebase.auth().currentUser.uid;
+                firebase.database().ref('users/' + uid).push({
+                    name: firstName,
+                    Lname: lastName,
+                    CNIC: CNIC,
+                    Age: Age,
+                    bloodGroup: bloodGroup
+                });
+            })
+
+
+
+        // (firstName.value, lastName.value, CNIC.value, Age.value, bloodGroup.value)
+        //     .then(function (user) {
+        // let obj = {
+        //     name: firstName.value,
+        //     Lname: lastName.value,
+        //     CNIC: CNIC.value,
+        //     Age: Age.value,
+        //     bloodGroup: bloodGroup.value
+        // }
+        //         firebase.database().ref('Donation/' + uid).set(obj)
+        //         swal({
+        //             title: 'Donate',
+        //             firebase.auth().writeUserDatatext: 'Successfully',
+        //             type: 'success',
+        //         })
+        //     })
     }
+
     firstName.addEventListener('blur', () => {
         if (firstName.value.length >= 3)
             errorFname.innerHTML = '';
@@ -214,26 +259,18 @@ function modaal() {
         if (bloodGroup.value.length == 2)
             errorBloodGroup.innerHTML = '';
     })
-    // else{
-    //     firebase.auth().createUserWithEmailAndPassword(Email.value, password.value)
-    //         .then(function (user) {
-    //             let obj = {
-    //                 name: firstName.value,
-    //                 Lname: lastName.value,
-    //                 CNIC: CNIC.value,
-    //                 Age: Age.value,
-    //                 bloodGroup: bloodGroup.value
-    //             }
-    //             let uid = firebase.auth().currentUser.uid;
-    //             firebase.database().ref('users/' + uid).set(obj)
-    //             swal({
-    //                 title: 'Donate',
-    //                 text: 'Successfully',
-    //                 type: 'success',
-    //             })
-    //         })
-    // }
 
+
+
+}
+
+
+function logout() {
+    firebase.auth().signOut().then(function () {
+        // Sign-out successful.
+    }).catch(function (error) {
+        // An error happened.
+    });
 }
 
 
