@@ -1,7 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: url('‪F:\vortech.git\Login Form Design\pic1.jpg');
+    background-color: brown;
+    background-image: url('F:\vortech.git\Blood Bank App\public\avatar.png');
     background-size: cover;
     background-position: center;
     font-family: sans-serif;

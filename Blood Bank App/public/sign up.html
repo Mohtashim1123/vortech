@@ -14,9 +14,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/LICENSE">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/package.json">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/README.md">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/sweetalert2.d.ts">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/package.json">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/README.md">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/sweetalert2.d.ts">
 
 
     <!-- Font Awesome -->
@@ -31,7 +31,11 @@
 </head>
 
 <body>
-
+        <nav class="navbar navbar-dark pink-color">
+                <a class="text_Style navbar-brand " href="file:///F:/vortech.git/Blood%20Bank%20App/public/main.html">Blood Donation</a>
+               <a href="file:///F:/vortech.git/Blood%20Bank%20App/public/sign%20up.html"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#centralModalLg"><span>Sign up</span></button></a>
+              <a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#centralModalLg"><span>Login</span></button></a>
+            </nav>
     <!-- Start your project here-->
     <div class="parent">
         <div class="child">
@@ -39,8 +43,6 @@
                 <h1>Blood Donation</h1>
             </div>
         </div>
-
-
         <div class="SignUpParent">
             <div class="headingSignUp">
                 <h1>Sign Up</h1>
@@ -75,39 +77,75 @@
                     </div>
                 </div>
                 <div id="passwordError">
-                <div class="md-form form-sm">
-                    <i class="fa fa-lock prefix"></i>
-                    <input type="password" id="Password" name="Password" class="my-field form-control form-control-sm">
-                    <label for="inputSMEx">Password</label>
+                    <div class="md-form form-sm">
+                        <i class="fa fa-lock prefix"></i>
+                        <input type="password" id="Password" name="Password" class="my-field form-control form-control-sm">
+                        <label for="inputSMEx">Password</label>
+                    </div>
                 </div>
-            </div>
-            <div id="CpasswordError">
-                <div class="md-form form-sm">
-                    <i class="fa fa-lock prefix"></i>
-                    <input type="password" id="ConformPassword" name="ConformPassword" class="my-field form-control form-control-sm">
-                    <label for="inputSMEx">Conform Password</label>
+                <div id="CpasswordError">
+                    <div class="md-form form-sm">
+                        <i class="fa fa-lock prefix"></i>
+                        <input type="password" id="ConformPassword" name="ConformPassword" class="my-field form-control form-control-sm">
+                        <label for="inputSMEx">Conform Password</label>
+                    </div>
                 </div>
-            </div>
                 <div class="btnCenter"> <button type="button" class="btn btn-danger" onClick="signUp()">SUBMIT</button></div>
         </div>
     </div>
 
     </form>
+    <!-- Footer -->
+    <footer class="page-footer font-small ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 py-5">
+                    <div class="mb-5 flex-center">
+                        <a class="fb-ic">
+                            <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="tw-ic">
+                            <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="gplus-ic">
+                            <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="li-ic">
+                            <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="ins-ic">
+                            <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <a class="pin-ic">
+                            <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="https://mdbootstrap.com/education/bootstrap/"> Blood Donation</a>
+            <p>Develop By Mohtashim</p>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
 
     <!-- /Start your project here-->
 
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyBqWiuqVP6FFxNuMvUOhP0hFDFuJU--hIA",
-        authDomain: "blood-app-695b0.firebaseapp.com",
-        databaseURL: "https://blood-app-695b0.firebaseio.com",
-        projectId: "blood-app-695b0",
-        storageBucket: "",
-        messagingSenderId: "605915712587"
-      };
-      firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBqWiuqVP6FFxNuMvUOhP0hFDFuJU--hIA",
+            authDomain: "blood-app-695b0.firebaseapp.com",
+            databaseURL: "https://blood-app-695b0.firebaseio.com",
+            projectId: "blood-app-695b0",
+            storageBucket: "",
+            messagingSenderId: "605915712587"
+        };
+        firebase.initializeApp(config);
     //   let func = document.getElementById('function');
     //   let dbRef = firebase.database().ref().child('text');
     </script>
@@ -124,6 +162,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+
 </body>
 
 </html>

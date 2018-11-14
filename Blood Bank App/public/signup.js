@@ -3,7 +3,9 @@ let errors = {
     Email: '',
     password: ''
 }
+var arry = []
 function signUp() {
+    debugger
     let Fname = document.getElementById('firstName');
     let Lname = document.getElementById('lastName');
     let Uname = document.getElementById('userName');
@@ -17,7 +19,7 @@ function signUp() {
     let passworderror = document.getElementById('passwordError');
     let CpasswordError = document.getElementById('CpasswordError');
 
-    // Fname
+    Fname
     if (Fname.value === '') {
         fnameerror.innerHTML = `
         <div class="md-form form-sm text-danger">
@@ -78,9 +80,8 @@ function signUp() {
         `
     }
     else {
-
         firebase.auth().createUserWithEmailAndPassword(Email.value, password.value)
-            .then(function (user) {
+            .then(function (users) {
                 let obj = {
                     name: Fname.value,
                     Lname: Lname.value,
@@ -138,7 +139,10 @@ function login() {
             })
         });
 }
+
+
 // modal
+
 function modal() {
     let firstName = document.getElementById('First_Name')
     let lastName = document.getElementById('Last_Name')
@@ -185,7 +189,6 @@ function modal() {
     //     errorAge.value=`Invaild**`
     // }
     else if (bloodGroup.value === '') {
-        console.log("sklalks")
         errorBloodGroup.innerHTML = `Blood Group*`
     }
     else if (bloodGroup.value.length < 2 || bloodGroup.value.length > 2) {
@@ -195,50 +198,23 @@ function modal() {
         errorBloodGroup.innerHTML = `Invaild*`
     }
     else {
-        swal({
-            title: 'Donated',
-            type: 'success',
-            confirmButtonText: '<a href = "file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
-            confirmButtonColor: '#3085d6'
-        })
-
-            .then(function savemessage(firstName, lastName, CNIC, Age, bloodGroup) {
-                var database = firebase.database();
-                var firstName = document.getElementById('First_Name').value
-                var lastName = document.getElementById('Last_Name').value
-                var CNIC = document.getElementById('CNIC').value
-                var Age = document.getElementById('AGE').value
-                var bloodGroup = document.getElementById('Blood_Group').value;
-                let uid = firebase.auth().currentUser.uid;
-                firebase.database().ref('users/' + uid).push({
-                    name: firstName,
-                    Lname: lastName,
-                    CNIC: CNIC,
-                    Age: Age,
-                    bloodGroup: bloodGroup
-                });
+        var database = firebase.database();
+        let uid = firebase.auth().currentUser.uid;
+        database.ref('donors/' + uid).set({
+            name: firstName.value,
+            Lname: lastName.value,
+            CNIC: CNIC.value,
+            Age: Age.value,
+            bloodGroup: bloodGroup.value
+        }).then(() => {
+            swal({
+                title: 'Donated',
+                type: 'success',
+                confirmButtonText: '<a href = "file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
+                confirmButtonColor: '#3085d6'
             })
-
-
-
-        // (firstName.value, lastName.value, CNIC.value, Age.value, bloodGroup.value)
-        //     .then(function (user) {
-        // let obj = {
-        //     name: firstName.value,
-        //     Lname: lastName.value,
-        //     CNIC: CNIC.value,
-        //     Age: Age.value,
-        //     bloodGroup: bloodGroup.value
-        // }
-        //         firebase.database().ref('Donation/' + uid).set(obj)
-        //         swal({
-        //             title: 'Donate',
-        //             firebase.auth().writeUserDatatext: 'Successfully',
-        //             type: 'success',
-        //         })
-        //     })
+        })
     }
-
     firstName.addEventListener('blur', () => {
         if (firstName.value.length >= 3)
             errorFname.innerHTML = '';
@@ -259,19 +235,77 @@ function modal() {
         if (bloodGroup.value.length == 2)
             errorBloodGroup.innerHTML = '';
     })
-
-
-
+}
+tableData();
+function tableData() {
+    var row = document.getElementById('rowData')
+    firebase.database().ref('donors/').on('value', ((data) => {
+        console.log(data.val())
+        var user = data.val()
+        for (const x in user) {
+            const text = user[x];
+            arry.push(text)
+        }
+        console.log(arry)
+        for (var i = 0; i < arry.length; i++) {
+            row.innerHTML = `
+             <div class="tableStyle">
+             <table class="table">
+             <thead>
+             <tr>
+             <th scope="col">#</th>
+             <th scope="col">First</th>
+             <th scope="col">Last</th>
+             <th scope="col">Age</th>
+             <th scope="col">CNIC</th>
+             <th scope="col">Blood Group</th>
+             </tr>
+             </thead>
+                 <tr>
+                 <th scope="row">1</th>
+                 <td>${arry[i].name}</td>
+                 <td>${arry[i].Lname}</td>
+                 <td>${arry[i].CNIC}</td>
+                 <td>${arry[i].Age}</td>
+                 <td>${arry[i].bloodGroup}</td>
+              </tr>
+              </table>
+              </div>`
+            console.log(row)
+        }
+    }))
 }
 
 
 function logout() {
-    firebase.auth().signOut().then(function () {
-        // Sign-out successful.
-    }).catch(function (error) {
-        // An error happened.
-    });
+    debugger
+    firebase.auth().currentUser
+    firebase.auth().signOut()
+    firebase.auth().onAuthStateChanged((donors) => {
+        if (donors)
+            alert('login');
+        else
+            swal({
+                title: 'Logout',
+                type: 'success',
+            })
+        window.location.replace(`file:///F:/vortech.git/Blood%20Bank%20App/public/main.html`);
+
+        swal({
+            title: 'Logout',
+            type: 'error',
+            confirmButtonText: '<a href = "file:///F:/vortech.git/Blood%20Bank%20App/public/main.html">Ok</a>',
+            confirmButtonColor: '#3085d6'
+        })
+
+    })
+
+
+
 }
+
+
+
 
 
 

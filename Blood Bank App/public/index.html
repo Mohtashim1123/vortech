@@ -2,100 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Blood bank</title>
-    <link rel="stylesheet" href="sweetalert2.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/dist/sweetalert2.all.min.js">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/CHANGELOG.md">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.common.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/LICENSE">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/package.json">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/README.md">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/sweetalert2.d.ts">
-
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
-    <link href="./blood.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Blood bank</title>
+  <link rel="icon" href="data:image/jpeg;base64,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">
+  <link rel="stylesheet" href="sweetalert2.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/dist/sweetalert2.all.min.js">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/CHANGELOG.md">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.common.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.5/sweetalert2.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/LICENSE">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/package.json">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/README.md">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/sweetalert2.d.ts">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="./blood.css" rel="stylesheet">
 </head>
 
 <body>
-
   <!-- Start your project here-->
   <nav class="navbar navbar-dark pink-color">
     <a class="text_Style navbar-brand " href="#">Blood Donation</a>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#centralModalLg"><span>Donation</span></button>
     <div class="c-dropdown dropdown">
-        <div class="c-avatar has-dropdown dropdown-toggle" id="dropdownMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="c-avatar__img" src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" height="38px" alt="Name">
-        </div>
-        <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuAvatar">
-            <a class="c-dropdown__item dropdown-item" href="#">Mohtashim</a>
-            <div class="dropdown-divider"></div>
-            <a class="c-dropdown__item dropdown-item" href="#" onclick="logout()">Logout</a>
-        </div>
+      <div class="c-avatar has-dropdown dropdown-toggle" id="dropdownMenuAvatar" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <img class="c-avatar__img" src="http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png" height="38px"
+          alt="Name">
+      </div>
+      <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuAvatar">
+        <a class="c-dropdown__item dropdown-item" href="#">Mohtashim</a>
+        <div class="dropdown-divider"></div>
+        <a class="c-dropdown__item dropdown-item" href="file:///F:/vortech.git/Blood%20Bank%20App/public/main.html" onclick="logout()">Logout</a>
+        
+      </div>
     </div>
   </nav>
   <h1 class="headingStyle">DONER LIST</h1>
-  <div class="tableStyle">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Age</th>
-          <th scope="col">CNIC</th>
-          <th scope="col">Blood Group</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>@fat</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td>@twitter</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
+      <div id="rowData">
+        </div>
     </table>
   </div>
   <!-- modal -->
   <!-- Central Modal Small -->
   <div class="modal fade" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
     <!-- Change class .modal-sm to change the size of the modal -->
     <div class="modal-dialog modal-lg" role="document">
-
-
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title w-100" id="myModalLabel">Donate</h4>
@@ -139,52 +99,42 @@
       </div>
     </div>
   </div>
+  <button type="button" class="btn btn-primary btn-sm" onclick="logout()">Submit</button>
 
-
-
-
-
-
-
-
-
-
-
-
-  
   <!-- Footer -->
-  <footer class="page-footer font-small ">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-12 py-5">
-                  <div class="mb-5 flex-center">
-                      <a class="fb-ic">
-                          <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                      </a>
-                      <a class="tw-ic">
-                          <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                      </a>
-                      <a class="gplus-ic">
-                          <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                      </a>
-                      <a class="li-ic">
-                          <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                      </a>
-                      <a class="ins-ic">
-                          <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
-                      </a>
-                      <a class="pin-ic">
-                          <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
-                      </a>
-                  </div>
-              </div>
+  <footer class="page-footer font-small fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 py-5">
+          <div class="mb-5 flex-center">
+            <a class="fb-ic">
+              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <a class="tw-ic">
+              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <a class="gplus-ic">
+              <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <a class="li-ic">
+              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <a class="ins-ic">
+              <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <a class="pin-ic">
+              <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+            </a>
           </div>
+        </div>
       </div>
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© 2018 Copyright:
-          <a href="https://mdbootstrap.com/education/bootstrap/"> Blood Donation</a>
-      </div>
-      <!-- Copyright -->
+    </div>
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/"> Blood Donation</a>
+      <p>Develop By Mohtashim</p>
+    </div>
+    <!-- Copyright -->
 
   </footer>
   <!-- Footer -->
@@ -193,19 +143,19 @@
   <!-- /Start your project here-->
 
   <!-- SCRIPTS -->
-  
+
   <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
   <script>
-      // Initialize Firebase
-      var config = {
-          apiKey: "AIzaSyBqWiuqVP6FFxNuMvUOhP0hFDFuJU--hIA",
-          authDomain: "blood-app-695b0.firebaseapp.com",
-          databaseURL: "https://blood-app-695b0.firebaseio.com",
-          projectId: "blood-app-695b0",
-          storageBucket: "",
-          messagingSenderId: "605915712587"
-      };
-      firebase.initializeApp(config);
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBqWiuqVP6FFxNuMvUOhP0hFDFuJU--hIA",
+      authDomain: "blood-app-695b0.firebaseapp.com",
+      databaseURL: "https://blood-app-695b0.firebaseio.com",
+      projectId: "blood-app-695b0",
+      storageBucket: "",
+      messagingSenderId: "605915712587"
+    };
+    firebase.initializeApp(config);
   //   let func = document.getElementById('function');
   //   let dbRef = firebase.database().ref().child('text');
   </script>
@@ -222,6 +172,7 @@
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="./auth.js"></script>
 </body>
 
 </html>
