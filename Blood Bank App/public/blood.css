@@ -21,11 +21,19 @@ body{
     margin-top: 5%;
     
 }
+.tableFix {
+    width: 70% !important;
+    border: 2px solid !important;
+    background-color: transparent !important;
+    color: aliceblue;
+    margin-top: -16px;
+}
 .table {
     width: 70% !important;
     border: 2px solid !important;
     background-color: transparent !important;
     color: aliceblue;
+    margin-top: -16px;
 }
 .headingStyle{
     display: flex;
@@ -65,4 +73,38 @@ body{
     padding-left: 117px;
     margin-top: 24px;
     color: wheat;
+}
+#rowData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.nameWidth{
+   
+    width: 171px;
+}
+.numWidth{
+   
+    width: 99px;
+}
+.LnameWidth{
+    
+    width: 158px;
+}
+.AgeWidth{
+    
+    width: 146px;
+}
+.CNICWidth{
+    
+    width: 197px;
+}
+.bloodGroupWidth{
+    
+    width: 298px;
+}
+footer.page-footer {
+    bottom: 0 !important;
+    z-index: -1 !important;
+    color: #fff !important;
 }

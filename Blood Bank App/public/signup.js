@@ -5,7 +5,6 @@ let errors = {
 }
 var arry = []
 function signUp() {
-    debugger
     let Fname = document.getElementById('firstName');
     let Lname = document.getElementById('lastName');
     let Uname = document.getElementById('userName');
@@ -115,11 +114,17 @@ function signUp() {
 // Login
 var spiner = document.getElementById('spiner')
 function login() {
+    // console.log(usid)
     let Email = document.getElementById('Email')
     let password = document.getElementById('password')
     spiner.className = "fa fa-spinner fa-spin";
     firebase.auth().signInWithEmailAndPassword(Email.value, password.value)
         .then(function (user) {
+            console.log(user)
+            // var usid = document.getElementById('UserNameId')
+
+            //  usid.innerHTML = user.email
+            // document.getElementById('UserNameId').innerHTML =`<p>kslks</p>`
             spiner.className = "";
             swal({
                 title: 'Login',
@@ -139,10 +144,7 @@ function login() {
             })
         });
 }
-
-
 // modal
-
 function modal() {
     let firstName = document.getElementById('First_Name')
     let lastName = document.getElementById('Last_Name')
@@ -210,7 +212,7 @@ function modal() {
             swal({
                 title: 'Donated',
                 type: 'success',
-                confirmButtonText: '<a href = "file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
+                confirmButtonText: 'Ok',
                 confirmButtonColor: '#3085d6'
             })
         })
@@ -239,7 +241,7 @@ function modal() {
 tableData();
 function tableData() {
     var row = document.getElementById('rowData')
-    firebase.database().ref('donors/').on('value', ((data) => {
+    firebase.database().ref('donors/').once('value', ((data) => {
         console.log(data.val())
         var user = data.val()
         for (const x in user) {
@@ -248,29 +250,18 @@ function tableData() {
         }
         console.log(arry)
         for (var i = 0; i < arry.length; i++) {
-            row.innerHTML = `
-             <div class="tableStyle">
-             <table class="table">
-             <thead>
-             <tr>
-             <th scope="col">#</th>
-             <th scope="col">First</th>
-             <th scope="col">Last</th>
-             <th scope="col">Age</th>
-             <th scope="col">CNIC</th>
-             <th scope="col">Blood Group</th>
-             </tr>
-             </thead>
-                 <tr>
-                 <th scope="row">1</th>
-                 <td>${arry[i].name}</td>
-                 <td>${arry[i].Lname}</td>
-                 <td>${arry[i].CNIC}</td>
-                 <td>${arry[i].Age}</td>
-                 <td>${arry[i].bloodGroup}</td>
-              </tr>
-              </table>
-              </div>`
+            row.innerHTML += `
+            <table class="table">
+            <tr>
+            <th scope = "row" class = "numWidth">${i+1}</th>
+            <td class = "nameWidth">${arry[i].name}</td></div>
+            <td class = "LnameWidth">${arry[i].Lname}</td>
+            <td class = "AgeWidth">${arry[i].Age}</td>
+            <td class = "CNICWidth">${arry[i].CNIC}</td>
+            <td class = "bloodGroupWidth">${arry[i].bloodGroup}</td>
+            </tr>
+            </table>
+            `
             console.log(row)
         }
     }))
@@ -278,27 +269,8 @@ function tableData() {
 
 
 function logout() {
-    debugger
     firebase.auth().currentUser
     firebase.auth().signOut()
-    firebase.auth().onAuthStateChanged((donors) => {
-        if (donors)
-            alert('login');
-        else
-            swal({
-                title: 'Logout',
-                type: 'success',
-            })
-        window.location.replace(`file:///F:/vortech.git/Blood%20Bank%20App/public/main.html`);
-
-        swal({
-            title: 'Logout',
-            type: 'error',
-            confirmButtonText: '<a href = "file:///F:/vortech.git/Blood%20Bank%20App/public/main.html">Ok</a>',
-            confirmButtonColor: '#3085d6'
-        })
-
-    })
 
 
 
@@ -352,3 +324,5 @@ function logout() {
 
 
     // }
+
+

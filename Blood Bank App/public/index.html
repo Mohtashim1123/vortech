@@ -29,6 +29,7 @@
 
 <body>
   <!-- Start your project here-->
+ 
   <nav class="navbar navbar-dark pink-color">
     <a class="text_Style navbar-brand " href="#">Blood Donation</a>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#centralModalLg"><span>Donation</span></button>
@@ -39,7 +40,7 @@
           alt="Name">
       </div>
       <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuAvatar">
-        <a class="c-dropdown__item dropdown-item" href="#">Mohtashim</a>
+        <a class="c-dropdown__item dropdown-item" id="UserNameId"  href="#"></a>
         <div class="dropdown-divider"></div>
         <a class="c-dropdown__item dropdown-item" href="file:///F:/vortech.git/Blood%20Bank%20App/public/main.html" onclick="logout()">Logout</a>
         
@@ -47,10 +48,26 @@
     </div>
   </nav>
   <h1 class="headingStyle">DONER LIST</h1>
-      <div id="rowData">
+  <div class="tableStyle">
+    <table class="table">
+    <thead>
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">First</th>
+    <th scope="col">Last</th>
+    <th scope="col">Age</th>
+    <th scope="col">CNIC</th>
+    <th scope="col">Blood Group</th>
+    </tr>
+    </thead>
+  </table>
+</div>
+    <tbody>
+        <div id="rowData">
+           
         </div>
-    </table>
-  </div>
+    
+  
   <!-- modal -->
   <!-- Central Modal Small -->
   <div class="modal fade" id="centralModalLg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -99,8 +116,9 @@
       </div>
     </div>
   </div>
-  <button type="button" class="btn btn-primary btn-sm" onclick="logout()">Submit</button>
+  <!-- <button type="button" class="btn btn-primary btn-sm" onclick="logout()">Submit</button> -->
 
+<!-- <div class="index"> -->
   <!-- Footer -->
   <footer class="page-footer font-small fixed-bottom">
     <div class="container">
@@ -108,22 +126,22 @@
         <div class="col-md-12 py-5">
           <div class="mb-5 flex-center">
             <a class="fb-ic">
-              <i class="fa fa-facebook fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+              <i class="fa fa-facebook fa-spin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
             <a class="tw-ic">
-              <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+              <i class="fa fa-twitter fa-spin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
             <a class="gplus-ic">
-              <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+              <i class="fa fa-google-plus fa-spin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
             <a class="li-ic">
-              <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+              <i class="fa fa-linkedin fa-spin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
             <a class="ins-ic">
-              <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+              <i class="fa fa-instagram fa-spin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
             </a>
             <a class="pin-ic">
-              <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+              <i class="fa fa-pinterest fa-spin fa-lg white-text fa-2x"> </i>
             </a>
           </div>
         </div>
@@ -137,6 +155,7 @@
     <!-- Copyright -->
 
   </footer>
+</div>
   <!-- Footer -->
   <!-- Central Modal Small -->
   <!-- modal -->
@@ -173,6 +192,7 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <script type="text/javascript" src="./auth.js"></script>
+  <script src="./checkauth.js"></script>
 </body>
 
 </html>
