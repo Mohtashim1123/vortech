@@ -1,3 +1,9 @@
+var body = document.getElementById('container');
+var loader = document.getElementById('loader');
+setTimeout(function () {
+    body.style.display = 'block';
+    loader.style.display = 'none';
+}, 2500);
 
 let errors = {
     Email: '',
@@ -121,10 +127,6 @@ function login() {
     firebase.auth().signInWithEmailAndPassword(Email.value, password.value)
         .then(function (user) {
             console.log(user)
-            // var usid = document.getElementById('UserNameId')
-
-            //  usid.innerHTML = user.email
-            // document.getElementById('UserNameId').innerHTML =`<p>kslks</p>`
             spiner.className = "";
             swal({
                 title: 'Login',
@@ -275,8 +277,33 @@ function logout() {
 
 
 }
+// let filterSearch = document.getElementById('FilterSearch')
+// filterSearch.addEventListener('keyup', filterItems);
+// function filterItems(){
+//     let filterValue = document.getElementById('FilterSearch').value.toUpperCase();
+//     console.log(filterValue);
 
+// }
 
+function filterItems(){
+const list = document.querySelector('#rowData tr');
+const forms = document.forms;
+const searchBar = forms['search-books'].querySelector('input');
+searchBar.addEventListener('keyup', (e) => {
+    debugger
+    const term = e.target.value.toLowerCase();
+    const books = list.getElementsByTagName('td');
+    console.log(books);
+    Array.from(books).forEach((book) => {
+      const title = book.arry.textContent;
+      if(title.toLowerCase().indexOf(e.target.value) != -1){
+        book.style.display = 'block';
+      } else {
+        book.style.display = 'none';
+      }
+    });
+  });
+}
 
 
 

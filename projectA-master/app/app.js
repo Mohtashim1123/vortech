@@ -1,22 +1,22 @@
-let body = document.getElementById('container');
-let loader = document.getElementById('loader');
+var body = document.getElementById('container');
+var loader = document.getElementById('loader');
 setTimeout(function () {
     body.style.display = 'block';
     loader.style.display = 'none';
 }, 200);
 
-let home = {
+var home = {
     name: undefined,
     email: undefined,
     briefBio: undefined
 }
 
-let about = {
+var about = {
     paraOne: undefined,
     paraTwo: undefined
 }
 
-let contact = {
+var contact = {
     name: undefined,
     email: undefined,
     phoneOne: undefined,
@@ -105,34 +105,34 @@ function AddProject(nameId, webName, webType, webDescription, imagePath, link) {
 }
 /* ********************************************** Functions for home ********************************************** */
 
-let highlight = function (word, sentence) {
-    let newWord = `<span class="highlight">${word}</span>`;
+var highlight = function (word, sentence) {
+    var newWord = `<span class="highlight">${word}</span>`;
     home.briefBio = sentence.replace(word, newWord);
     console.log(sentence);
 }
 
 /* ********************************************** Getting Element Of Home Page ********************************************** */
 
-let username = document.getElementById('name-h1');
-let email = document.getElementById('email-a');
-let briefBio = document.getElementById('brief-bio');
+var username = document.getElementById('name-h1');
+var email = document.getElementById('email-a');
+var briefBio = document.getElementById('brief-bio');
 
-let firstPara = document.getElementById('para-one');
-let secondPara = document.getElementById('para-two');
+var firstPara = document.getElementById('para-one');
+var secondPara = document.getElementById('para-two');
 
-let contactName = document.getElementById('name-contact');
-let contactAddress = document.getElementById('address-contact');
-let contactPhoneOne = document.getElementById('phoneone-contact');
-let cotactPhoneTwo = document.getElementById('phonetwo-contact');
-let contactEmail = document.getElementById('email-contact');
+var contactName = document.getElementById('name-contact');
+var contactAddress = document.getElementById('address-contact');
+var contactPhoneOne = document.getElementById('phoneone-contact');
+var cotactPhoneTwo = document.getElementById('phonetwo-contact');
+var contactEmail = document.getElementById('email-contact');
 
-let education = document.getElementById('education');
+var education = document.getElementById('education');
 
-let work = document.getElementById('work');
+var work = document.getElementById('work');
 
-let skillSet = document.getElementById('skill');
+var skillSet = document.getElementById('skill');
 
-let projects = document.getElementById('project');
+var projects = document.getElementById('project');
 /* ********************************************** Setting Data ********************************************** */
 
 home.name = 'Seerat Ahmed Khan';
@@ -167,25 +167,25 @@ contactAddress.innerHTML = contact.address;
 contactPhoneOne.innerHTML = contact.phoneOne;
 cotactPhoneTwo.innerHTML = contact.phoneTwo;
 
-let educationOne = new Education('University of Karachi - UBIT', 'Bachelors in Computer Science (BSCS)', 'Continued - 4th Semester', "I'm doing my Bachelors from University of Karachi, Department of Computer Science, UBIT. During my past four semesters, I've learn alot and gain alot of knowledge, making many projects, gave presentations, this is the best institute. I've learn under many genius, polite teachers. So I want to be enterpreneur and a professor after completing my bachelors.")
-let educationTwo = new Education('S.M. Govt. Science College', 'Intermediate, Pre-engineering', 'April 2015', "I've completed my Intermediate in Pre-engineering from the Sindh Muslim Govt. Science College with A grade.")
-let educationTwo = new Education('Comprehensive Model School', 'Matriculation, Computer Science', 'April 2013', "I've completed my Matriculation in Computer Science from the Comprehensive Model School.")
+var educationOne = new Education('University of Karachi - UBIT', 'Bachelors in Computer Science (BSCS)', 'Continued - 4th Semester', "I'm doing my Bachelors from University of Karachi, Department of Computer Science, UBIT. During my past four semesters, I've learn alot and gain alot of knowledge, making many projects, gave presentations, this is the best institute. I've learn under many genius, polite teachers. So I want to be enterpreneur and a professor after completing my bachelors.")
+var educationTwo = new Education('S.M. Govt. Science College', 'Intermediate, Pre-engineering', 'April 2015', "I've completed my Intermediate in Pre-engineering from the Sindh Muslim Govt. Science College with A grade.")
+var educationTwo = new Education('Comprehensive Model School', 'Matriculation, Computer Science', 'April 2013', "I've completed my Matriculation in Computer Science from the Comprehensive Model School.")
 
-let workOne = new Work('University of Karachi - UBIT', 'Bachelors in Computer Science (BSCS)', 'Continued - 4th Semester', "I'm doing my Bachelors from University of Karachi, Department of Computer Science, UBIT. During my past four semesters, I've learn alot and gain alot of knowledge, making many projects, gave presentations, this is the best institute. I've learn under many genius, polite teachers. So I want to be enterpreneur and a professor after completing my bachelors.")
+var workOne = new Work('University of Karachi - UBIT', 'Bachelors in Computer Science (BSCS)', 'Continued - 4th Semester', "I'm doing my Bachelors from University of Karachi, Department of Computer Science, UBIT. During my past four semesters, I've learn alot and gain alot of knowledge, making many projects, gave presentations, this is the best institute. I've learn under many genius, polite teachers. So I want to be enterpreneur and a professor after completing my bachelors.")
 
-let progressOne = new ProgressSkills('HTML5', 80);
-let progressTwo = new ProgressSkills('CSS3', 65);
-let progressThree = new ProgressSkills('JavaScript', 70);
-let progressFour = new ProgressSkills('Angular 2', 20);
-let progressFive = new ProgressSkills('Github', 50);
-let progressSix = new ProgressSkills('Firebase', 60);
-let progressSeven = new ProgressSkills('C', 70);
-let progressEight = new ProgressSkills('C#', 70);
-let progressNine = new ProgressSkills('SQLite', 70);
+var progressOne = new ProgressSkills('HTML5', 80);
+var progressTwo = new ProgressSkills('CSS3', 65);
+var progressThree = new ProgressSkills('JavaScript', 70);
+var progressFour = new ProgressSkills('Angular 2', 20);
+var progressFive = new ProgressSkills('Github', 50);
+var progressSix = new ProgressSkills('Firebase', 60);
+var progressSeven = new ProgressSkills('C', 70);
+var progressEight = new ProgressSkills('C#', 70);
+var progressNine = new ProgressSkills('SQLite', 70);
 
-let projectOne = new AddProject('todo', 'Todo', 'Application', 'Just write, manage and remember', 'images/21.jpg', 'https://todoapplication-490b4.firebaseapp.com/');
-let projectTwo = new AddProject('zipper', 'Zipper', 'Website', 'Zipper is a non-responsive website. Working on making it responsive', 'images/18.jpg','https://zipper-a457d.firebaseapp.com/');
-let projectTwo = new AddProject('steakhouse', 'Steak House', 'Website', 'Steak house is a website of a hotel. Working on making it responsive', 'images/22.jpg', 'https://project-01-d52f1.firebaseapp.com/');
+var projectOne = new AddProject('todo', 'Todo', 'Application', 'Just write, manage and remember', 'images/21.jpg', 'https://todoapplication-490b4.firebaseapp.com/');
+var projectTwo = new AddProject('zipper', 'Zipper', 'Website', 'Zipper is a non-responsive website. Working on making it responsive', 'images/18.jpg','https://zipper-a457d.firebaseapp.com/');
+var projectTwo = new AddProject('steakhouse', 'Steak House', 'Website', 'Steak house is a website of a hotel. Working on making it responsive', 'images/22.jpg', 'https://project-01-d52f1.firebaseapp.com/');
 
 
 
