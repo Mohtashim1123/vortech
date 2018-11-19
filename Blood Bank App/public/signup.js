@@ -1,5 +1,12 @@
 var body = document.getElementById('container');
 var loader = document.getElementById('loader');
+var searchbox = document.getElementById('FilterSearch');
+// searchbox.addEventListener('change', (e) => {
+//     const filter = arry.filter((a) => a.toLowerCase() === e.target.value && e.target.value.toLowerCase());
+// console.log(filter)
+
+// });
+
 setTimeout(function () {
     body.style.display = 'block';
     loader.style.display = 'none';
@@ -10,6 +17,8 @@ let errors = {
     password: ''
 }
 var arry = []
+// const a = addEventListener('')
+// console.log(filterItems())
 function signUp() {
     let Fname = document.getElementById('firstName');
     let Lname = document.getElementById('lastName');
@@ -242,17 +251,25 @@ function modal() {
 }
 tableData();
 function tableData() {
-    var row = document.getElementById('rowData')
+    console.log(arry)
     firebase.database().ref('donors/').once('value', ((data) => {
-        console.log(data.val())
         var user = data.val()
+        console.log(data.val())
         for (const x in user) {
             const text = user[x];
             arry.push(text)
         }
-        console.log(arry)
-        for (var i = 0; i < arry.length; i++) {
-            row.innerHTML += `
+
+        Data()
+    })
+    )
+
+}
+function Data() {
+    console.log(arry)
+    var row = document.getElementById('rowData')
+    for (var i = 0; i < arry.length; i++) {
+        row.innerHTML = `
             <table class="table">
             <tr>
             <th scope = "row" class = "numWidth">${i+1}</th>
@@ -263,47 +280,58 @@ function tableData() {
             <td class = "bloodGroupWidth">${arry[i].bloodGroup}</td>
             </tr>
             </table>
-            `
-            console.log(row)
-        }
-    }))
+            `+ row.innerHTML;
+        console.log(row)
+    }
+
 }
-
-
 function logout() {
     firebase.auth().currentUser
     firebase.auth().signOut()
-
-
-
 }
-// let filterSearch = document.getElementById('FilterSearch')
+// var user = data.val()
+let filterSearch = document.getElementById('myInput')
+let row = document.getElementById('rowData')
 // filterSearch.addEventListener('keyup', filterItems);
-// function filterItems(){
-//     let filterValue = document.getElementById('FilterSearch').value.toUpperCase();
+// function filterItems() {
+//     let filterValue = document.getElementById('FilterSearch').value.toLowerCase();
 //     console.log(filterValue);
-
+//     const serac = arry.filter(value => value.name.toLowerCase() === (filterValue))
+//     // Data()
+//     console.log(serac)
+//     serac.addEventListener('change', (e) => {
+//         const term = e.name.value.toLowerCase();
+//         console.log(term)
+//     })
 // }
 
-function filterItems(){
-const list = document.querySelector('#rowData tr');
-const forms = document.forms;
-const searchBar = forms['search-books'].querySelector('input');
-searchBar.addEventListener('keyup', (e) => {
-    debugger
-    const term = e.target.value.toLowerCase();
-    const books = list.getElementsByTagName('td');
-    console.log(books);
-    Array.from(books).forEach((book) => {
-      const title = book.arry.textContent;
-      if(title.toLowerCase().indexOf(e.target.value) != -1){
-        book.style.display = 'block';
-      } else {
-        book.style.display = 'none';
-      }
+$(document).ready(function(){
+    $("#filterSearch").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#row tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
     });
   });
-}
+// function filterItems(){
+// const list = document.querySelector('#rowData tr');
+// const forms = document.forms;
+// const searchBar = forms['search-books'].querySelector('input');
+// searchBar.addEventListener('keyup', (e) => {
+//     console.log(searchBar)
+//     const term = e.target.value.toLowerCase();
+//     const books = list.getElementsByTagName('td');
+//     console.log(term);
+//     Array.from(books).forEach((book) => {
+//       const title = book.parentElement.textContent;
+//       if(title.toLowerCase().indexOf(e.target.value) != -1){
+//         book.style.display = 'block';
+//       } else {
+//         book.style.display = 'none';
+//       }
+//     });
+//   });
+// }
 
 
 
