@@ -9,6 +9,7 @@ body{
     display: flex;
     width: 100%;
     justify-content: center;
+    flex: 1;
 }
 .child{
     border: 2px solid black;
@@ -119,15 +120,18 @@ body{
     margin-top: 24px;
     color: wheat;
 }
+.responsive{
+display: flex;
+}
 .loginbox{
     width: 320px;
     height: 420px;
     background: #000;
     color: #fff;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%,-50%);
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
     box-sizing: border-box;
     padding: 70px 30px;
 }
@@ -195,4 +199,18 @@ h1{
 .loginbox a:hover
 {
     color: #ffc107;
+}
+footer.page-footer {
+    bottom: 0 !important;
+    z-index: -1 !important;
+    color: #fff !important;
+    width: 100%;
+    margin-top: 1%;
+}
+footer.page1-footer1 {
+    bottom: 0 !important;
+    z-index: -1 !important;
+    color: #fff !important;
+    width: 100%;
+    margin-top: 7%;
 }

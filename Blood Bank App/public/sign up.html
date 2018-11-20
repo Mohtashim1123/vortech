@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/README.md">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.28.12/sweetalert2.d.ts">
 
-
+<link rel="icon" href="http://pngimage.net/wp-content/uploads/2018/05/blood-icon-png-5.png">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Bootstrap core CSS -->
@@ -31,16 +31,20 @@
 </head>
 
 <body>
-        <nav class="navbar navbar-dark pink-color">
-                <a class="text_Style navbar-brand " href="file:///F:/vortech.git/Blood%20Bank%20App/public/main.html">Blood Donation</a>
-               <a href="file:///F:/vortech.git/Blood%20Bank%20App/public/sign%20up.html"> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#centralModalLg"><span>Sign up</span></button></a>
-              <a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#centralModalLg"><span>Login</span></button></a>
-            </nav>
+    <nav class="navbar navbar-dark pink-color">
+        <a class="text_Style navbar-brand " href="file:///F:/vortech.git/Blood%20Bank%20App/public/main.html">Blood
+            Donation</a>
+        <a href="file:///F:/vortech.git/Blood%20Bank%20App/public/sign%20up.html"> <button type="button" class="btn btn-danger"
+                data-toggle="modal" data-target="#centralModalLg"><span>Sign up</span></button></a>
+        <a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html"><button type="button" class="btn btn-danger"
+                data-toggle="modal" data-target="#centralModalLg"><span>Login</span></button></a>
+    </nav>
     <!-- Start your project here-->
     <div class="parent">
         <div class="child">
             <div class="heading">
                 <h1>Blood Donation</h1>
+               
             </div>
         </div>
         <div class="SignUpParent">
@@ -48,55 +52,51 @@
                 <h1>Sign Up</h1>
             </div>
             <form onsubmit="signUp()" action="login" method="POST">
-                <div id="firstNameError">
-                    <div class="md-form form-sm">
-                        <i class="fa fa-user prefix"></i>
-                        <input type="text" id="firstName" name="firstName" class="my-field form-control form-control-sm">
-                        <label for="inputSMEx">First Name</label>
-                    </div>
+                <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="firstName" name="firstName" class="my-field form-control form-control-sm">
+                    <label for="inputSMEx">First Name</label>
                 </div>
-                <div id="lastNameError">
-                    <div class="md-form form-sm">
-                        <i class="fa fa-user prefix"></i>
-                        <input type="text" id="lastName" name="lastName" class="my-field form-control form-control-sm">
-                        <label for="inputSMEx">Last Name</label>
-                    </div>
+                <p class="text-danger" id="firstNameError"></p>
+                <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="lastName" name="lastName" class="my-field form-control form-control-sm">
+                    <label for="inputSMEx">Last Name</label>
                 </div>
-                <div id="UserNameError">
-                    <div class="md-form form-sm">
-                        <i class="fa fa-user prefix"></i>
-                        <input type="text" id="userName" name="userName" class="my-field form-control form-control-sm">
-                        <label for="inputSMEx">User Name</label>
-                    </div>
+                <p class="text-danger" id="lastNameError"></p>
+                <div class="md-form form-sm">
+                    <i class="fa fa-user prefix"></i>
+                    <input type="text" id="userName" name="userName" class="my-field form-control form-control-sm">
+                    <label for="inputSMEx">User Name</label>
                 </div>
-                <div id="EmailError">
-                    <div class="md-form form-sm">
-                        <i class="fa fa-envelope prefix"></i>
-                        <input type="text" id="Email" name="Email" class="my-field form-control form-control-sm">
-                        <label for="inputSMEx">Email</label>
-                    </div>
+                <p class="text-danger" id="UserNameError"></p>
+                <div class="md-form form-sm">
+                    <i class="fa fa-envelope prefix"></i>
+                    <input type="text" id="Email" name="Email" class="my-field form-control form-control-sm">
+                    <label for="inputSMEx">Email</label>
                 </div>
-                <div id="passwordError">
-                    <div class="md-form form-sm">
-                        <i class="fa fa-lock prefix"></i>
-                        <input type="password" id="Password" name="Password" class="my-field form-control form-control-sm">
-                        <label for="inputSMEx">Password</label>
-                    </div>
+                <p class="text-danger" id="EmailError"></p>
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="Password" name="Password" class="my-field form-control form-control-sm" style="
+                    color: black; "> 
+                       <label for="inputSMEx">Password</label>
                 </div>
-                <div id="CpasswordError">
-                    <div class="md-form form-sm">
-                        <i class="fa fa-lock prefix"></i>
-                        <input type="password" id="ConformPassword" name="ConformPassword" class="my-field form-control form-control-sm">
-                        <label for="inputSMEx">Conform Password</label>
-                    </div>
+                <p class="text-danger" id="passwordError"></p>
+                <div class="md-form form-sm">
+                    <i class="fa fa-lock prefix"></i>
+                    <input type="password" id="ConformPassword" name="ConformPassword" class="my-field form-control form-control-sm" style="
+                    color: black;">
+                    <label for="inputSMEx">Conform Password</label>
                 </div>
-                <div class="btnCenter"> <button type="button" class="btn btn-danger" onClick="signUp()">SUBMIT</button></div>
+                <p class="text-danger" id="CpasswordError"></p>
+                <div class="btnCenter"> <button type="button" class="btn btn-danger" onClick="signUp()">SUBMIT</button><div> <i id="spiner" class="fa fa-spinner fa-spin" style="font-size:24px;margin-top: 16px;"></i></div></div>
         </div>
     </div>
 
     </form>
     <!-- Footer -->
-    <footer class="page-footer font-small ">
+    <footer class="page1-footer1 font-small ">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 py-5">
@@ -125,8 +125,8 @@
         </div>
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://mdbootstrap.com/education/bootstrap/"> Blood Donation</a>
-            <p>Develop By Mohtashim</p>
+            Blood Donation</a>
+            <p>Develop By Mohtashim Waheed</a></p>
         </div>
         <!-- Copyright -->
 
@@ -162,7 +162,7 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="js/mdb.min.js"></script>
-    
+
 
 </body>
 
