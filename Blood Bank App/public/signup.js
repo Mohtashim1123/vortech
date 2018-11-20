@@ -1,12 +1,5 @@
 var body = document.getElementById('container');
 var loader = document.getElementById('loader');
-var searchbox = document.getElementById('FilterSearch');
-// searchbox.addEventListener('change', (e) => {
-//     const filter = arry.filter((a) => a.toLowerCase() === e.target.value && e.target.value.toLowerCase());
-// console.log(filter)
-
-// });
-
 setTimeout(function () {
     body.style.display = 'block';
     loader.style.display = 'none';
@@ -17,8 +10,6 @@ let errors = {
     password: ''
 }
 var arry = []
-// const a = addEventListener('')
-// console.log(filterItems())
 function signUp() {
     let Fname = document.getElementById('firstName');
     let Lname = document.getElementById('lastName');
@@ -33,67 +24,65 @@ function signUp() {
     let passworderror = document.getElementById('passwordError');
     let CpasswordError = document.getElementById('CpasswordError');
 
-    Fname
+    // Fname
     if (Fname.value === '') {
-        fnameerror.innerHTML = `
-        <div class="md-form form-sm text-danger">
-        <i class="fa fa-user prefix" text-danger></i>
-        <input type="text" id="firstName" name="firstName" class="text-danger my-field form-control form-control-sm">
-        <label for="inputSMEx"class = "text-danger">First Name</label>
-        </div>
-        `
+        fnameerror.innerHTML = `Field is Empty`
+    }
+    else if ((Fname.value.length <= 2) || Fname.value.length > 20) {
+        fnameerror.innerHTML = `Character Must be 3 to 20`;
+    }
+    else if (!Fname.value.match(/[a-zA-Z]/)) {
+        fnameerror.innerHTML = `Invaild*`
     }
     // lname 
     else if (Lname.value === '') {
-        Lnameerror.innerHTML = `
-        <div class="md-form form-sm text-danger">
-        <i class="fa fa-user prefix" text-danger></i>
-        <input type="text" id="lastName" name="lastName" class="text-danger my-field form-control form-control-sm">
-        <label for="inputSMEx" class= "text-danger">Last Name</label>
-        </div>
-        `
+        Lnameerror.innerHTML = `Field is Empty`
+    }
+    else if ((Lname.value.length <= 2) || Lname.value.length > 20) {
+        Lnameerror.innerHTML = `Character Must be 3 to 20`;
+    }
+    else if (!Lname.value.match(/[a-zA-Z]/)) {
+        Lnameerror.innerHTML = `Invaild*`
     }
     // uname
     else if (Uname.value === '') {
-        Unameerror.innerHTML = `
-        <div class="md-form form-sm text-danger">
-              <i class="fa fa-user prefix" text-danger></i>
-                <input type="text" id="userName" name="userName" class="text-danger my-field form-control form-control-sm">
-                    <label for="inputSMEx" class = "text-danger">User Name</label>
-        </div>
-        `
+        Unameerror.innerHTML = `Field is Empty`
+    }
+    else if (!Uname.value.match(/[a-zA-Z]/)) {
+        Unameerror.innerHTML = `Invaild*`
+    }
+    else if ((Uname.value.length <= 2) || Uname.value.length > 20) {
+        Unameerror.innerHTML = `Character Must be 3 to 20`;
     }
     // Email
     else if (Email.value === '') {
-        Emailerror.innerHTML = `
-        <div class="md-form form-sm text-danger">
-                        <i class="fa fa-envelope prefix" text-danger></i>
-                        <input type="text" id="Email" name="Email" class="text-danger my-field form-control form-control-sm">
-                        <label for="inputSMEx" class = "text-danger">Email</label>
-                    </div>
-        `
+        Emailerror.innerHTML =`Field is Empty`
+    }
+    else if ((Email.value.length <= 2) || Uname.value.length > 20) {
+        Emailerror.innerHTML = `Character Must be 3 to 20`;
+    }
+    else if (Email.value.indexOf('@') <= 0) {
+        Emailerror.innerHTML = "** @ invaild**";
     }
     // password
     else if (password.value === '') {
-        passworderror.innerHTML = `
-        <div class="md-form form-sm text-danger">
-                    <i class="fa fa-lock prefix" text-danger></i>
-                    <input type="text" id="Password" name="Password" class="text-danger my-field form-control form-control-sm">
-                    <label for="inputSMEx"class= "text-danger">Password</label>
-                </div>
-        `
+        passworderror.innerHTML = `Field is Empty`
+    }
+    else if ((password.value.length <= 2) || Uname.value.length > 20) {
+        passworderror.innerHTML = `Password Must be 3 to 20`;
     }
     // Cpassword
     else if (Cpassword.value === '') {
-        CpasswordError.innerHTML = `
-        <div class="md-form form-sm text-danger">
-        <i class="fa fa-lock prefix" text-danger></i>
-        <input type="text" id="ConformPassword" name="ConformPassword" class="text-danger my-field form-control form-control-sm">
-        <label for="inputSMEx"class="text-danger">Conform Password</label>
-    </div>
-        `
+        CpasswordError.innerHTML = `Field is Empty`
+    }
+    else if ((Cpassword.value.length <= 2) || Uname.value.length > 20) {
+        CpasswordError.innerHTML = `Password Must be 3 to 20`;
+    }
+    else if (password.value != Cpassword.value) {
+        CpasswordError.innerHTML = "** Password not Match**";
     }
     else {
+        spiner.className = "fa fa-spinner fa-spin";
         firebase.auth().createUserWithEmailAndPassword(Email.value, password.value)
             .then(function (users) {
                 let obj = {
@@ -111,11 +100,11 @@ function signUp() {
                     text: 'Successfully',
                     type: 'success',
                     confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html">Ok</a>',
-
+                    confirmButtonColor: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html">#fff</a>'
                 })
             })
             .catch(function (error) {
-                // Handle Errors here.
+                spiner.className = "";
                 swal({
                     title: 'Error!',
                     text: 'Sign Up Already',
@@ -124,32 +113,52 @@ function signUp() {
                 })
             })
     }
+    Fname.addEventListener('blur', () => {
+        if (Fname.value.length >= 3)
+        fnameerror.innerHTML = '';
+    })
+    Lname.addEventListener('blur', () => {
+        if (Lname.value.length >= 3)
+        Lnameerror.innerHTML = '';
+    })
+    Uname.addEventListener('blur', () => {
+        if (Uname.value.length >= 3)
+        Unameerror.innerHTML = '';
+    })
+    Email.addEventListener('blur', () => {
+        if (Email.value.length >= 3)
+        Emailerror.innerHTML = '';
+    })
+    password.addEventListener('blur', () => {
+        if (password.value.length >= 3)
+        passworderror.innerHTML = '';
+    })
+    Cpassword.addEventListener('blur', () => {
+        if (Cpassword.value.length >= 3)
+        CpasswordError.innerHTML = '';
+    })
 }
-
 // Login
 var spiner = document.getElementById('spiner')
 function login() {
-    // console.log(usid)
     let Email = document.getElementById('Email')
     let password = document.getElementById('password')
     spiner.className = "fa fa-spinner fa-spin";
     firebase.auth().signInWithEmailAndPassword(Email.value, password.value)
         .then(function (user) {
-            console.log(user)
             spiner.className = "";
             swal({
                 title: 'Login',
                 text: 'Successfully',
                 type: 'success',
                 confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
-
+                confirmButtonColor: 'fff'
             })
         })
         .catch(function (error) {
             spiner.className = "";
             swal({
                 title: 'Error!',
-                text: 'Sign Up Already',
                 type: 'error',
                 confirmButtonText: 'Cancel'
             })
@@ -198,9 +207,9 @@ function modal() {
     else if (Age.value.length < 2 || Age.value.length > 2) {
         errorAge.innerHTML = `Invaild Age*`
     }
-    // else if(!Age.value.indexOf('-') <=0 && !Age.value.indexOf('+') <=0 ){
-    //     errorAge.value=`Invaild**`
-    // }
+    else if(Age.value < 18){
+errorAge.innerHTML=`If your Age 18 and 18+`
+    }
     else if (bloodGroup.value === '') {
         errorBloodGroup.innerHTML = `Blood Group*`
     }
@@ -223,8 +232,8 @@ function modal() {
             swal({
                 title: 'Donated',
                 type: 'success',
-                confirmButtonText: 'Ok',
-                confirmButtonColor: '#3085d6'
+                confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
+                confirmButtonColor: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">#fff</a>'
             })
         })
     }
@@ -251,28 +260,23 @@ function modal() {
 }
 tableData();
 function tableData() {
-    console.log(arry)
     firebase.database().ref('donors/').once('value', ((data) => {
         var user = data.val()
-        console.log(data.val())
         for (const x in user) {
             const text = user[x];
             arry.push(text)
         }
-
         Data()
-    })
-    )
-
+    }))
 }
 function Data() {
     console.log(arry)
     var row = document.getElementById('rowData')
     for (var i = 0; i < arry.length; i++) {
-        row.innerHTML = `
+        row.innerHTML += `
             <table class="table">
             <tr>
-            <th scope = "row" class = "numWidth">${i+1}</th>
+            <th scope = "row" class = "numWidth">${i + 1}</th>
             <td class = "nameWidth">${arry[i].name}</td></div>
             <td class = "LnameWidth">${arry[i].Lname}</td>
             <td class = "AgeWidth">${arry[i].Age}</td>
@@ -280,61 +284,38 @@ function Data() {
             <td class = "bloodGroupWidth">${arry[i].bloodGroup}</td>
             </tr>
             </table>
-            `+ row.innerHTML;
-        console.log(row)
+            `;
     }
-
 }
+
 function logout() {
     firebase.auth().currentUser
     firebase.auth().signOut()
 }
-// var user = data.val()
-let filterSearch = document.getElementById('myInput')
-let row = document.getElementById('rowData')
-// filterSearch.addEventListener('keyup', filterItems);
-// function filterItems() {
-//     let filterValue = document.getElementById('FilterSearch').value.toLowerCase();
-//     console.log(filterValue);
-//     const serac = arry.filter(value => value.name.toLowerCase() === (filterValue))
-//     // Data()
-//     console.log(serac)
-//     serac.addEventListener('change', (e) => {
-//         const term = e.name.value.toLowerCase();
-//         console.log(term)
-//     })
-// }
 
-$(document).ready(function(){
-    $("#filterSearch").on("keyup", function() {
-      var value = $(this).val().toLowerCase();
-      $("#row tr").filter(function() {
-        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-      });
-    });
-  });
-// function filterItems(){
-// const list = document.querySelector('#rowData tr');
-// const forms = document.forms;
-// const searchBar = forms['search-books'].querySelector('input');
-// searchBar.addEventListener('keyup', (e) => {
-//     console.log(searchBar)
-//     const term = e.target.value.toLowerCase();
-//     const books = list.getElementsByTagName('td');
-//     console.log(term);
-//     Array.from(books).forEach((book) => {
-//       const title = book.parentElement.textContent;
-//       if(title.toLowerCase().indexOf(e.target.value) != -1){
-//         book.style.display = 'block';
-//       } else {
-//         book.style.display = 'none';
-//       }
-//     });
-//   });
-// }
-
-
-
+let input = document.getElementById("myInput");
+input.addEventListener('keyup', filterItems);
+function filterItems() {
+    let filter = input.value.toUpperCase();
+    let table = document.getElementById("rowData");
+    let tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        let name = tr[i].getElementsByTagName("td")[0];
+        let last = tr[i].getElementsByTagName("td")[1];
+        let Age = tr[i].getElementsByTagName("td")[2];
+        let CNIC = tr[i].getElementsByTagName("td")[3];
+        let bloodGroup = tr[i].getElementsByTagName("td")[4];
+        if (name.innerHTML.toUpperCase().indexOf(filter) > -1 
+        || last.innerHTML.toUpperCase().indexOf(filter)>-1 
+        || Age.innerHTML.toUpperCase().indexOf(filter)>-1
+        || CNIC.innerHTML.toUpperCase().indexOf(filter)>-1 
+        || bloodGroup.innerHTML.toUpperCase().indexOf(filter)>-1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
 
 
 
