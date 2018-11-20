@@ -56,7 +56,7 @@ function signUp() {
     }
     // Email
     else if (Email.value === '') {
-        Emailerror.innerHTML =`Field is Empty`
+        Emailerror.innerHTML = `Field is Empty`
     }
     else if ((Email.value.length <= 2) || Uname.value.length > 20) {
         Emailerror.innerHTML = `Character Must be 3 to 20`;
@@ -94,14 +94,20 @@ function signUp() {
                     Cpassword: Cpassword
                 }
                 let uid = firebase.auth().currentUser.uid;
+                // let url=window.location.href ='./login.html'
                 firebase.database().ref('users/' + uid).set(obj)
+                spiner.className = "";
                 swal({
-                    title: 'Sign Up',
-                    text: 'Successfully',
+                    position: 'top-end',
                     type: 'success',
-                    confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html">Ok</a>',
-                    confirmButtonColor: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/login.html">#fff</a>'
+                    title: 'Sign Up Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
                 })
+
+                setTimeout(function () {
+                    window.location.href = "./login.html";
+                }, 1500);
             })
             .catch(function (error) {
                 spiner.className = "";
@@ -115,27 +121,27 @@ function signUp() {
     }
     Fname.addEventListener('blur', () => {
         if (Fname.value.length >= 3)
-        fnameerror.innerHTML = '';
+            fnameerror.innerHTML = '';
     })
     Lname.addEventListener('blur', () => {
         if (Lname.value.length >= 3)
-        Lnameerror.innerHTML = '';
+            Lnameerror.innerHTML = '';
     })
     Uname.addEventListener('blur', () => {
         if (Uname.value.length >= 3)
-        Unameerror.innerHTML = '';
+            Unameerror.innerHTML = '';
     })
     Email.addEventListener('blur', () => {
         if (Email.value.length >= 3)
-        Emailerror.innerHTML = '';
+            Emailerror.innerHTML = '';
     })
     password.addEventListener('blur', () => {
         if (password.value.length >= 3)
-        passworderror.innerHTML = '';
+            passworderror.innerHTML = '';
     })
     Cpassword.addEventListener('blur', () => {
         if (Cpassword.value.length >= 3)
-        CpasswordError.innerHTML = '';
+            CpasswordError.innerHTML = '';
     })
 }
 // Login
@@ -148,12 +154,15 @@ function login() {
         .then(function (user) {
             spiner.className = "";
             swal({
-                title: 'Login',
-                text: 'Successfully',
+                position: 'top-end',
                 type: 'success',
-                confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
-                confirmButtonColor: 'fff'
+                title: 'Login Successfully',
+                showConfirmButton: false,
+                timer: 1500
             })
+            setTimeout(function () {
+                window.location.href = "./home.html";
+            }, 1500);
         })
         .catch(function (error) {
             spiner.className = "";
@@ -207,8 +216,8 @@ function modal() {
     else if (Age.value.length < 2 || Age.value.length > 2) {
         errorAge.innerHTML = `Invaild Age*`
     }
-    else if(Age.value < 18){
-errorAge.innerHTML=`If your Age 18 and 18+`
+    else if (Age.value < 18) {
+        errorAge.innerHTML = `If your Age 18 and 18+`
     }
     else if (bloodGroup.value === '') {
         errorBloodGroup.innerHTML = `Blood Group*`
@@ -230,11 +239,15 @@ errorAge.innerHTML=`If your Age 18 and 18+`
             bloodGroup: bloodGroup.value
         }).then(() => {
             swal({
-                title: 'Donated',
+                position: 'top-end',
                 type: 'success',
-                confirmButtonText: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">Ok</a>',
-                confirmButtonColor: '<a href="file:///F:/vortech.git/Blood%20Bank%20App/public/index.html">#fff</a>'
+                title: 'Donated',
+                showConfirmButton: false,
+                timer: 1500
             })
+            setTimeout(function () {
+                window.location.href = "./home.html";
+            }, 1500);
         })
     }
     firstName.addEventListener('blur', () => {
@@ -305,11 +318,11 @@ function filterItems() {
         let Age = tr[i].getElementsByTagName("td")[2];
         let CNIC = tr[i].getElementsByTagName("td")[3];
         let bloodGroup = tr[i].getElementsByTagName("td")[4];
-        if (name.innerHTML.toUpperCase().indexOf(filter) > -1 
-        || last.innerHTML.toUpperCase().indexOf(filter)>-1 
-        || Age.innerHTML.toUpperCase().indexOf(filter)>-1
-        || CNIC.innerHTML.toUpperCase().indexOf(filter)>-1 
-        || bloodGroup.innerHTML.toUpperCase().indexOf(filter)>-1) {
+        if (name.innerHTML.toUpperCase().indexOf(filter) > -1
+            || last.innerHTML.toUpperCase().indexOf(filter) > -1
+            || Age.innerHTML.toUpperCase().indexOf(filter) > -1
+            || CNIC.innerHTML.toUpperCase().indexOf(filter) > -1
+            || bloodGroup.innerHTML.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
         } else {
             tr[i].style.display = "none";

@@ -4,7 +4,7 @@ firebase.auth().onAuthStateChanged((donors) => {
         document.getElementById('UserNameId').innerHTML = donors.email
         console.log(document.getElementById('UserNameId'), donors.email)
     } else {
-        window.location.replace(`file:///F:/vortech.git/Blood%20Bank%20App/public/main.html`);
+        window.location.replace(`./index.html`);
 
     }
 })
