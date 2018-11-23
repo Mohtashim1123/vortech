@@ -1,5 +1,16 @@
 var body = document.getElementById('container');
 var loader = document.getElementById('loader');
+function w3_open() {
+    document.getElementById("main").style.marginLeft = "25%";
+    document.getElementById("mySidebar").style.width = "25%";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("openNav").style.display = 'none';
+  }
+  function w3_close() {
+    document.getElementById("main").style.marginLeft = "0%";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("openNav").style.display = "inline-block";
+  }
 setTimeout(function () {
     body.style.display = 'block';
     loader.style.display = 'none';
@@ -64,6 +75,15 @@ function signUp() {
     else if (Email.value.indexOf('@') <= 0) {
         Emailerror.innerHTML = "** @ invaild**";
     }
+    else if (Email.value.indexOf('gmail')<=0){
+        Emailerror.innerHTML =`Gmail invaild `
+    }
+    else if (Email.value.indexOf('.')<=0){
+        Emailerror.innerHTML=`Invaild`
+    }
+    else if(Email.value.indexOf('com')<=0){
+        Emailerror.innerHTML = `Com invaild`
+    }
     // password
     else if (password.value === '') {
         passworderror.innerHTML = `Field is Empty`
@@ -94,7 +114,6 @@ function signUp() {
                     Cpassword: Cpassword
                 }
                 let uid = firebase.auth().currentUser.uid;
-                // let url=window.location.href ='./login.html'
                 firebase.database().ref('users/' + uid).set(obj)
                 spiner.className = "";
                 swal({
@@ -283,7 +302,6 @@ function tableData() {
     }))
 }
 function Data() {
-    console.log(arry)
     var row = document.getElementById('rowData')
     for (var i = 0; i < arry.length; i++) {
         row.innerHTML += `
@@ -306,7 +324,7 @@ function logout() {
     firebase.auth().signOut()
 }
 
-let input = document.getElementById("myInput");
+let input = document.getElementById('myInput');
 input.addEventListener('keyup', filterItems);
 function filterItems() {
     let filter = input.value.toUpperCase();

@@ -3,7 +3,7 @@ body{
    background-repeat: no-repeat;
    background-size: 100%;
    opacity: 1;
-   background-color: brown;
+   background-color: cadetblue;
 }
 .parent{
     display: flex;
@@ -14,7 +14,7 @@ body{
 .child{
     border: 2px solid black;
     height: 550px;
-    width: 34%;
+    /* width: 34%; */
     display: flex;
     border: 1px solid;
     padding: 10px;
