@@ -1,7 +1,8 @@
+// articles start
 function sortByTheme(){
     let select1 = document.getElementById('select1').selectedIndex;
-    let ab = document.getElementsByTagName("option")[select1].value;
-    switch (ab) {
+    let theme = document.getElementsByTagName("option")[select1].value;
+    switch (theme) {
         case 'GenderSensitive':
         {
             $(".Gender_sensitive_media").show();
@@ -56,11 +57,11 @@ function sortByTheme(){
 function number(){
     
     let select2 = document.getElementById('select2').selectedIndex;
-    let abc = document.getElementsByClassName('alls')[select2].value;
+    let years = document.getElementsByClassName('alls')[select2].value;
     console.log(abc)
 
     debugger
-    switch (abc) {
+    switch (years) {
         case 'all':
         {
             $(".2018").show();
@@ -122,3 +123,59 @@ function number(){
 
 }
 
+// articles end
+
+// brochures&poster Start
+// function tabToggle(){
+//     console.log('assjn')
+// let tab = document.getElementsByClassName('TabSelect').selectedIndex;
+// let tabActive = document.getElementsByClassName('TabSelect')[tab]
+// console.log(tab)
+// }
+
+function getEventTarget(e) {
+    e = e || window.event;
+    return e.target || e.srcElement; 
+}
+
+var ul = document.getElementById('test');
+ul.onclick = function(event) {
+    var target = getEventTarget(event);
+    console.log(target.innerHTML);
+
+switch (target.innerHTML) {
+    case 'Brochures':
+    {
+        $(".brochure-sec").show();
+        $(".poster-sec").hide();
+        $(".flyer-sec").hide();
+        break;
+    }
+    
+    case 'Posters':
+    {
+        $(".brochure-sec").hide();
+        $(".poster-sec").show();
+        $(".flyer-sec").hide();
+        break;
+    }
+
+    case 'Flyer':
+    {
+        $(".brochure-sec").hide();
+        $(".poster-sec").hide();
+        $(".flyer-sec").show();
+        break;
+    }
+    case 'All':
+    {
+        $(".brochure-sec").show();
+        $(".poster-sec").show();
+        $(".flyer-sec").show();
+        break;
+    }
+}
+
+}
+
+// brochures&poster end

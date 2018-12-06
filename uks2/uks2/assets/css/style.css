@@ -2607,6 +2607,27 @@ p.report-content {
 .brochure-sec .research-box {
     margin-top: 0;
 }
+
+.poster-sec {
+    float: left;
+    width: 100%;
+    text-align: left;
+	margin-bottom: 55px;
+}
+.poster-sec .research-box {
+    margin-top: 0;
+}
+
+.flyer-sec {
+    float: left;
+    width: 100%;
+    text-align: left;
+	margin-bottom: 55px;
+}
+.flyer-sec .research-box {
+    margin-top: 0;
+}
+
 .sidebar.inner-sidebar {
     margin-left:  0;
 }
