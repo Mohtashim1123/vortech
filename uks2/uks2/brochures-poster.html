@@ -127,9 +127,9 @@
 										<select id="select1" onchange="sortByTheme()">
 											<option value="all">All</option>
 											<option value="GenderSensitive">Gender sensitive media</option>
-											<option value="media">Media ethics</option>
-											<option value="women">Women empowerment </option>
-											<option value="GenderBased">Gender based violence</option>
+											<option value="ViolenceAgainstWomen">Violence against women</option>
+											<option value="LegalRights">Legal rights </option>
+											<option value="HumanRights">Human Rights</option>
 										</select>
 									</form>
 								</div>
@@ -137,12 +137,14 @@
 								<div class="filter-box">
 									<form>
 										<label>Sort by Year</label>
-										<select>
-											<option>2010</option>
-											<option>2011</option>
-											<option>2012</option>
-											<option>2013</option>
-										</select>
+										<select id='select2' onchange="number()">
+												<option class="alls" value="all">All</option>
+												<option class="alls" value="2016">2016</option>
+												<option class="alls" value="2015">2015</option>
+												<option class="alls" value="2012">2013</option>
+												<option class="alls" value="1998">2007</option>
+												<option class="alls" value="1998">2009</option>
+											</select>
 									</form>
 								</div>
 							</div>
@@ -161,7 +163,7 @@
 
 								<div class="row">
 									<div class="brochure-sec">
-										<div class="Gender_sensitive_media">
+										<div class="Gender_sensitive_media 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<div id="Brochures"></div>
@@ -179,7 +181,7 @@
 											</div>
 										</div>
 
-										<div class="Gender_sensitive_media">
+										<div class="Gender_sensitive_media 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Gender-Sensitive Media A Voluntary Code of Ethics (Urdu).jpg" alt="" style="
@@ -194,7 +196,7 @@
 											</div>
 										</div>
 
-										<div class="Gender_sensitive_media">
+										<div class="Gender_sensitive_media 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/About Uks - Uks's New Flyer (side 1).jpg" alt="" style="
@@ -215,9 +217,7 @@
 
 								<div class="row">
 									<div class="brochure-sec">
-
-
-										<div class="Violence_against_women">
+										<div class="Violence_against_women 2016">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Aurat, Qanoon aur Tahafuz (side 1).jpg" alt="" style="
@@ -232,7 +232,7 @@
 											</div>
 										</div>
 
-										<div class="Legal_rights">
+										<div class="Legal_rights 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/More Women in Media - Eng (Front).jpg" alt="" style="
@@ -247,7 +247,7 @@
 											</div>
 										</div>
 
-										<div class="Human_Rights">
+										<div class="Human_Rights 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/BPFA (English).jpg" alt="" style="
@@ -267,7 +267,7 @@
 
 								<div class="row">
 									<div class="brochure-sec">
-										<div class="Human_Rights">
+										<div class="Human_Rights 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/CEDAW (English).jpg" alt="" style="
@@ -280,7 +280,7 @@
 											</div>
 										</div>
 
-										<div class="Human_Rights">
+										<div class="Human_Rights 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/MDGs (English) - Copy.jpg" alt="" style="
@@ -293,7 +293,7 @@
 											</div>
 										</div>
 
-										<div class="Gender_sensitive_media">
+										<div class="Gender_sensitive_media 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/GMMP (English).jpg" alt="" style="
@@ -314,7 +314,7 @@
 
 								<div class="row">
 									<div class="brochure-sec">
-										<div class="Human  Rights">
+										<div class="Human_Rights 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/National Plan of Action (Urdu).jpg" alt="" style="
@@ -328,7 +328,7 @@
 											</div>
 										</div>
 
-										<div class="Human_Rights">
+										<div class="Human_Rights 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/UDHR (English).jpg" alt="" style="
@@ -343,6 +343,7 @@
 										</div>
 
 
+										<div class="Gender_sensitive_media 2007">
 										<div class="col-md-4">
 											<div class="research-box">
 												<img src="assets/images/Gender Sensitive Code of Ethics for Print Media.jpg" alt="" style="
@@ -353,6 +354,7 @@
 												<h3>Gender-sensitive </h3>
 											</div>
 										</div>
+										</div>
 									</div>
 								</div>
 								<!-- Brochures end -->
@@ -360,7 +362,7 @@
 
 								<div class="row">
 									<div class="poster-sec">
-										<div class="Gender_sensitive_media">
+										<div class="Gender_sensitive_media 2015">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Don't Stereotype my Portrayal (Eng).jpg" alt="" style="
@@ -374,7 +376,7 @@
 											</div>
 										</div>
 
-										<div class="Legal_rights">
+										<div class="Legal_rights 2015">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Women Workers Legal Rights (1).jpg" alt="" style="
@@ -387,7 +389,7 @@
 											</div>
 										</div>
 
-										<div class="Legal_rights">
+										<div class="Legal_rights 2015">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Women Workers Legal Rights (2).jpg" alt="" style="
@@ -411,7 +413,7 @@
 
 								<div class="row">
 									<div class="poster-sec">
-										<div class="Legal_rights">
+										<div class="Legal_rights 2015">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Women Workers Legal Rights (3).jpg" alt="" style="
@@ -424,7 +426,7 @@
 											</div>
 										</div>
 
-										<div class="Legal_rights">
+										<div class="Legal_rights 2015">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Women Workers Legal Rights (4).jpg" alt="" style="
@@ -437,7 +439,7 @@
 											</div>
 										</div>
 
-										<div class="Gender_sensitive_media">
+										<div class="Gender_sensitive_media 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Women in Executive Positions in Media - Copy.jpg" alt="" style="
@@ -457,7 +459,7 @@
 								<div class="row">
 									<div class="poster-sec">
 
-										<div class="Gender_sensitive_media">
+										<div class="Gender_sensitive_media 2013">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Gender-responsive language in print media.jpg" alt="" style="
@@ -471,7 +473,7 @@
 										</div>
 
 
-										<div class="Human_Rights">
+										<div class="Human_Rights 2009">
 											<div class="col-md-4">
 												<div class="research-box">
 													<img src="assets/images/Structure2.jpg" alt="" style="
@@ -510,7 +512,7 @@
 								<div class="row">
 									<div class="flyer-sec">
 
-											<div class="Violence_against_women">
+											<div class="Violence_against_women 2016">
 													<div class="col-md-4">
 													 <div class="research-box">
 													  <img src="assets/images/Violence Against Women - Myths and Realities (Eng).jpg" alt=""style="
@@ -524,7 +526,7 @@
 													</div>
 													  </div>
 
-													  <div class="Gender_sensitive_media">
+													  <div class="Gender_sensitive_media 2015">
 															<div class="col-md-4">
 															 <div class="research-box">
 															  <img src="assets/images/Women Media Complaint Cell (Eng).jpg" alt=""style="
@@ -538,7 +540,7 @@
 																</div>
 
 
-																<div class="Gender_sensitive_media">
+																<div class="Gender_sensitive_media 2013">
 																		<div class="col-md-4">
 																		 <div class="research-box">
 																		  <img src="assets/images/Change the Mindset (English - 2).jpg" alt=""style="
@@ -561,7 +563,7 @@
 								<div class="row">
 										<div class="flyer-sec">
 	
-												<div class="Violence_against_women">
+												<div class="Violence_against_women 2013">
 														<div class="col-md-12">
 														 <div class="research-box">
 														  <img src="assets/images/Call Me A Reporter.jpg" alt=""style="
