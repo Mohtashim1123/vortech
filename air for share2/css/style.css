@@ -1,0 +1,43 @@
+body{
+    background-color: #F4F4F4;
+}
+/* section start */
+.navgationParent{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 70px;
+    border: 2px solid;
+}
+.logo{
+    border: 2px solid;
+}
+.items{
+    border: 2px solid;
+    width: 54%;
+    display: inline-flex;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+    justify-content: space-around;
+}
+.items :hover{
+    color:#638EFD;
+    cursor: pointer;
+}
+.HowItWorks{
+    
+}
+.Download{
+
+}
+.Upgrade{
+
+}
+.Feedback{
+    
+}
+.loginRegister{
+    color:#638EFD;
+    font-weight: bold;
+}
