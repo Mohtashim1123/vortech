@@ -120,11 +120,13 @@
 	    <div class="filter-box">
 		 <form>
 		  <label>Sort by Theme</label>
-		  <select>
-		   <option>Dummy</option>
-		   <option>Dummy</option>
-		   <option>Dummy</option>
-		   <option>Dummy</option>
+		  <select id="select" onchange="sort()">
+		   <option value="all">All</option>
+		   <option value="GenderJustMedia">Gender Just Media</option>
+		   <option value="ViolenceAgainstWomen">Violence Against Women</option>
+		   <option value="legalRights">legal Rights</option>
+		   <option value="peaceBuilding">Peace Building</option>
+		   <option value="womenEmpowerment">Women Empowerment</option>
 		  </select>
 		 </form>
 		</div>
@@ -132,11 +134,13 @@
 		<div class="filter-box">
 		 <form>
 		  <label>Sort by Year</label>
-		  <select>
-		   <option>2010</option>
-		   <option>2011</option>
-		   <option>2012</option>
-		   <option>2013</option>
+		  <select id="selects" onchange="year()">
+		   <option class="all" value="all">All</option>
+		   <option class="all" value="2017">2017</option>
+		   <option class="all" value="2016">2016</option>
+		   <option class="all" value="2015">2015</option>
+		   <option class="all" value="2014">2014</option>
+		   <option class="all" value="2012">2012</option>
 		  </select>
 		 </form>
 		</div>
@@ -144,7 +148,7 @@
 	   
 	   <div class="panel-group accordian-sec roundtable-title" id="accordion">
 			
-                    <div class="panel panel-default fellow-sec">
+                    <div class="panel panel-default fellow-sec GenderJustMedia 2017">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 								<img src="assets/images/community-interaction/1.jpg" alt="" style="width: 386px; height: 189px;">		
@@ -195,7 +199,7 @@
 					</div>
 					
 
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec GenderJustMedia 2017 2016">
 							<div class="panel-heading">
 							  <div class="fellowleft">
 							   <img src="assets/images/community-interaction/2.jpg
@@ -248,7 +252,7 @@
 							</div>
 						</div>	
 					
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec ViolenceAgainstWomen 2016">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/3.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -299,7 +303,7 @@
 					</div>
 					
 
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec ViolenceAgainstWomen 2016">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/4.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -348,7 +352,7 @@
 					</div>
 					<!-- done 4 -->
 
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec ViolenceAgainstWomen 2016">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/5.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -399,7 +403,7 @@
 					</div>
 					<!-- done 5 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec ViolenceAgainstWomen 2016">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/6.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -448,7 +452,7 @@
 					</div>
 					<!-- done 6 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec GenderJustMedia 2016">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/7.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -503,7 +507,7 @@
 					</div>
 					<!-- done 7 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec GenderJustMedia 2016">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/8.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -556,7 +560,7 @@
 					</div>
 					<!-- done 8 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec ViolenceAgainstWomen 2015">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/9.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -606,7 +610,7 @@
 					</div>
 					<!-- done 9 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec ViolenceAgainstWomen 2015">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/10.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -651,7 +655,7 @@
 					</div>
 					<!-- done 10 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec legalRights 2015">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/11.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -696,7 +700,7 @@
 					</div>
 					<!-- done 11 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec legalRights 2015">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/12.png" alt="" style="width: 386px; height: 189px;"/>
@@ -747,7 +751,7 @@
 					</div>
 					<!-- done 12 -->
 
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec legalRights 2015">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/13.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -795,7 +799,7 @@
 					</div>
 					<!-- done 13 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec legalRights 2015">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/14.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -850,7 +854,7 @@
                         </div>
 					</div>
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec peaceBuilding 2015">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/15.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -901,7 +905,7 @@
 					</div>
 					<!-- done 15 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec legalRights 2014">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/16.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -955,7 +959,7 @@
 					</div>
 					<!-- done 16 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec peaceBuilding 2014">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/fellow-img4.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -1021,7 +1025,7 @@
 					</div>
 
 
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec legalRights 2014">
 							<div class="panel-heading">
 							  <div class="fellowleft">
 							   <img src="assets/images/community-interaction/18.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -1072,7 +1076,7 @@
 						</div>
 					<!-- done 17 -->
 					
-					<div class="panel panel-default fellow-sec">
+					<div class="panel panel-default fellow-sec womenEmpowerment 2012">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/19.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -1123,7 +1127,7 @@
 					</div>
 					<!-- done 18 -->
 
-                     <div class="panel panel-default fellow-sec">
+                     <div class="panel panel-default fellow-sec womenEmpowerment 2012">
                         <div class="panel-heading">
 						  <div class="fellowleft">
 						   <img src="assets/images/community-interaction/20.jpg" alt="" style="width: 386px; height: 189px;"/>
@@ -1190,14 +1194,7 @@
 
    			
 
-<div class="pagination">
-  <a href="javascript:;">1</a>
-  <a href="javascript:;">2</a>
-  <a href="javascript:;">3</a>
-  <a href="javascript:;">4</a>
-  <a href="javascript:;">5</a>
-  <a href="javascript:;">6</a>
-</div>					
+					
 								
 </div>       
 	 	
@@ -1325,6 +1322,7 @@ GMMP - Pak</p>
 <script src="assets/js/jquery-3.1.1.min.js"></script>
 <script src="assets/js/slick.min.js"></script>
 <script src="assets/js/customjs.js"></script>
+<script src="assets/js/community.js"></script>
 
 </body>
 </html>

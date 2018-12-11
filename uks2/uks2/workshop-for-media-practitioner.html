@@ -122,11 +122,15 @@
 						<div class="filter-box">
 							<form>
 								<label>Sort by Theme</label>
-								<select>
-									<option>Dummy</option>
-									<option>Dummy</option>
-									<option>Dummy</option>
-									<option>Dummy</option>
+								<select id="select" onchange="sort()">
+									<option value="All">All</option>
+									<option value="ViolenceAgainstWomen">Violence Against Women</option>
+									<option value="genderjustmedia">Gender Just Media</option>
+									<option value="energyJournalism">Energy Journalism</option>
+									<option value="peaceBuilding">Peace Building</option>
+									<option value="humanRights">Human Rights</option>
+									<option value="disasterPrevention">Disaster Prevention</option>
+									<option value="HIVAIDS">HIV And AIDS</option>
 								</select>
 							</form>
 						</div>
@@ -134,11 +138,19 @@
 						<div class="filter-box">
 							<form>
 								<label>Sort by Year</label>
-								<select>
-									<option>2010</option>
-									<option>2011</option>
-									<option>2012</option>
-									<option>2013</option>
+								<select id="selectYear" onchange="year()">
+									<option class="all" value="all">All</option>
+									<option class="all" value="2016">2016</option>
+									<option class="all" value="2015">2015</option>
+									<option class="all" value="2013">2013</option>
+									<option class="all" value="2012">2012</option>
+									<option class="all" value="2009">2009</option>
+									<option class="all" value="2007">2007</option>
+									<option class="all" value="2006">2006</option>
+									<option class="all" value="2001">2001</option>
+									<option class="all" value="2000">2000</option>
+									<option class="all" value="1999">1999</option>
+									<option class="all" value="1998">1998</option>
 								</select>
 							</form>
 						</div>
@@ -146,7 +158,7 @@
 
 					<div class="panel-group accordian-sec roundtable-title" id="accordion">
 
-						<div class="panel panel-default">
+						<div class="panel panel-default ViolenceAgainstWomen 2016">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>July, 2016</span>
@@ -256,7 +268,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2016">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>November 2015 - January 2016</span>
@@ -371,7 +383,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2015">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>28th October, 2015</span>
@@ -481,7 +493,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default energyJournalism 2015">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>31-31st March, 2015</span>
@@ -603,7 +615,7 @@
 							</div>
 						</div>
 						<!-- done-->
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2013">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>2013</span>
@@ -709,7 +721,7 @@
 						</div>
 						<!-- done -->
 
-						<div class="panel panel-default">
+						<div class="panel panel-default peaceBuilding 2013">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>4-6th February, 2013</span>
@@ -814,7 +826,7 @@
 						</div>
 						<!-- done -->
 
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2012">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>September - December, 2012</span>
@@ -923,7 +935,7 @@
 						</div>
 						<!-- done -->
 
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2012">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>May - September, 2012</span>
@@ -1032,7 +1044,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default humanRights 2009">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>July-December, 2009</span>
@@ -1144,7 +1156,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2007">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>November 18, 2007</span>
@@ -1259,7 +1271,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2007">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>8th November, 2007</span>
@@ -1380,7 +1392,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 2006">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>16th October 2006</span>
@@ -1488,7 +1500,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-default">
+						<div class="panel panel-default disasterPrevention 2006">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>January – December, 2006</span>
@@ -1598,7 +1610,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default disasterPrevention 2006">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>February – March, 2006</span>
@@ -1708,7 +1720,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default HIVAIDS 2001">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>2001</span>
@@ -1816,7 +1828,7 @@
 						</div>
 
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default HIVAIDS 2000">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>2000</span>
@@ -1921,7 +1933,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 1999">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>April 1999</span>
@@ -2027,7 +2039,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 1998">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>2-3rd November, 1998</span>
@@ -2136,7 +2148,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default">
+						<div class="panel panel-default genderjustmedia 1998">
 							<div class="panel-heading">
 								<h4 class="panel-title">
 									<span>21st September, 1998 (Karachi)
@@ -2242,23 +2254,6 @@
 
 								</div>
 							</div>
-						</div>
-
-
-
-
-
-
-
-
-
-						<div class="pagination">
-							<a href="javascript:;">1</a>
-							<a href="javascript:;">2</a>
-							<a href="javascript:;">3</a>
-							<a href="javascript:;">4</a>
-							<a href="javascript:;">5</a>
-							<a href="javascript:;">6</a>
 						</div>
 
 					</div>
@@ -2387,6 +2382,7 @@
 	<script src="assets/js/jquery-3.1.1.min.js"></script>
 	<script src="assets/js/slick.min.js"></script>
 	<script src="assets/js/customjs.js"></script>
+	<script src="assets/js/workshop_practitioner.js"></script>
 
 </body>
 

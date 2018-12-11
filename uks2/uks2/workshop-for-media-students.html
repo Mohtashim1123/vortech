@@ -122,9 +122,10 @@
 						<div class="filter-box">
 							<form>
 								<label>Sort by Theme</label>
-								<select>
-									<option>Gender-just Media</option>
-									<option>GBV/VAW</option>
+								<select id="select" onchange="sort()">
+									<option value="all">All</option>
+									<option value="GenderjustMedia">Gender just Media</option>
+									<option value="GenderbasedViolence">Gender based Violence</option>
 								</select>
 							</form>
 						</div>
@@ -132,13 +133,15 @@
 						<div class="filter-box">
 							<form>
 								<label>Sort by Year</label>
-								<select>
-									<option>2018</option>
-									<option>2017</option>
-									<option>2016</option>
-									<option>2015</option>
-									<option>2011</option>
-									<option>2010</option>
+								<select id="selects" onchange="year()">
+									<option class="all" value="all">All</option>
+									<option class="all" value="2018">2018</option>
+									<option class="all" value="2017">2017</option>
+									<option class="all" value="2016">2016</option>
+									<option class="all" value="2013">2013</option>
+									<option class="all" value="2011">2011</option>
+									<option class="all" value="2010">2010</option>
+									<option class="all" value="2009">2009</option>
 								</select>
 							</form>
 						</div>
@@ -146,7 +149,7 @@
 
 					<div class="panel-group accordian-sec roundtable-title" id="accordion">
 
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderjustMedia 2018">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/1.jpg" alt="" style="width: 386px; height: 186px;" style="width: 386px; height: 186px;" />
@@ -209,7 +212,7 @@
 							</div>
 						</div>
 
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderjustMedia 2017">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/2.jpg" alt="" style="width: 386px; height: 186px;" />
@@ -273,7 +276,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderbasedViolence 2016">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/3.jpg" alt="" style="width: 386px; height: 186px;" />
@@ -319,7 +322,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderjustMedia 2016">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/4.jpg" alt="" style="width: 386px; height: 186px;" />
@@ -371,7 +374,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderjustMedia 2016">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/5.jpg" alt="" style="width: 386px; height: 186px;" />
@@ -427,7 +430,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderjustMedia 2013">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/6.jpg" alt="" style="width: 386px; height: 186px;" />
@@ -484,7 +487,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderjustMedia 2011 2010">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/7.png" alt="" style="width: 386px; height: 186px;" />
@@ -545,7 +548,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderbasedViolence 2010">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/8.jpg" alt="" style="width: 386px; height: 186px;" />
@@ -595,7 +598,7 @@
 							</div>
 						</div>
 						<!-- done -->
-						<div class="panel panel-default fellow-sec">
+						<div class="panel panel-default fellow-sec GenderjustMedia 2009">
 							<div class="panel-heading">
 								<div class="fellowleft">
 									<img src="assets/images/Workshops for Media Students/9.jpg" alt="" style="width: 386px; height: 186px;" />
@@ -645,15 +648,6 @@
 
 								</div>
 							</div>
-						</div>
-
-						<div class="pagination">
-							<a href="javascript:;">1</a>
-							<a href="javascript:;">2</a>
-							<a href="javascript:;">3</a>
-							<a href="javascript:;">4</a>
-							<a href="javascript:;">5</a>
-							<a href="javascript:;">6</a>
 						</div>
 
 					</div>
@@ -782,6 +776,7 @@
 	<script src="assets/js/jquery-3.1.1.min.js"></script>
 	<script src="assets/js/slick.min.js"></script>
 	<script src="assets/js/customjs.js"></script>
+	<script src="assets/js/workshop_student.js"></script>
 
 </body>
 

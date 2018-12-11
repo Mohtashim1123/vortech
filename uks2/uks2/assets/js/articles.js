@@ -1,4 +1,6 @@
 // articles start
+let text = [];
+
 function sortByTheme() {
     let select1 = document.getElementById('select1').selectedIndex;
     let theme = document.getElementsByTagName("option")[select1].value;
@@ -263,3 +265,68 @@ function number() {
     }
 
 }
+
+// let input = document.getElementById('myInput');
+// input.addEventListener('keyup', filterItems);
+// function filterItems() {
+//     let main = document.getElementById('main')
+//     let filter = input.value.toUpperCase();
+//     let heading = document.getElementsByClassName('heading');
+//     for (let index = 0; index < heading.length; index++) {
+//         text.push(heading[index].innerHTML);
+//     }
+//        var indexs = text[0].indexOf(filter);
+//      if(indexs !== -1){
+//          main.style.display = "";    
+//         } else {
+//             main.style.display = "none";
+//     }
+
+//         // const newData = text && text.filter(item => {
+
+//         //     const itemData = `${item.toUpperCase()}`;
+//         //     const textData = filter.toUpperCase();
+//         //     heading = itemData.indexOf(textData) > -1;
+
+//         //     if(text !== -1){
+//         //         main.style.display =  "";
+//         //     }else{
+//         //         main.style.display = "none";
+//         //     }
+
+
+//         // });
+
+
+
+
+
+//     console.log(text)
+//     console.log(filter)
+//     let tag = document.getElementsByTagName('span')
+
+// }
+
+const searchBox = document.getElementById('myInput');
+
+console.log(searchBox);
+
+const filter = (e) => {
+    console.log('Hello ')
+
+    let heading = document.getElementsByClassName('heading');
+
+    for (let index = 0; index < heading.length; index++) {
+        text.push(heading[index].innerHTML);
+    }
+
+    console.log(text);
+
+    text && text.map((t) => {
+        const hasKeyword = t && t.toLowerCase().includes(e.target.value && e.targt.value.toLowerCase());
+        console.log(hasKeyword)
+        // if(hasKeyword) { 
+        searchBox.value = 'Seerat';
+        // }
+    })
+};
